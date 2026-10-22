@@ -39,7 +39,7 @@ JSON_MODE = os.getenv("JSON_MODE", "0") != "0"
 
 def _source_candidates(project, finding):
     """Locate the source named by a finding without requiring project compilation."""
-    root = Path("dataset") / project
+    root = Path("dataset/projects") / project
     if not root.exists():
         return []
     raw_file = str(finding.get("file") or finding.get("contract") or "")
@@ -158,7 +158,7 @@ def _load_sources(project, findings=None):
     if contracts is None:
         try:
             from stableguard.core.project_loader import ProjectLoader
-            ldr = ProjectLoader(str(Path("dataset") / project))
+            ldr = ProjectLoader(str(Path("dataset/projects") / project))
             try:
                 contracts = ldr.load().contracts
             except Exception:

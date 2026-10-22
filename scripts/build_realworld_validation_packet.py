@@ -43,7 +43,7 @@ def find_source_file(project: str, file_name: str | None) -> Path | None:
     if not file_name:
         return None
     ddir = project_to_dir(project) or project
-    root = ROOT / "dataset" / ddir
+    root = ROOT / "dataset" / "projects" / ddir
     if not root.is_dir():
         return None
     basename = Path(file_name).name.lower()

@@ -1,0 +1,7 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+[etherscan]
+unknown_chain = { key = "${LINEASCAN_API_KEY}", chain = 59141, url = "https://api-sepolia.lineascan.build/api" }

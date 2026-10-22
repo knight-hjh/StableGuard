@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-22",
+  "script_changes": [
+    {
+      "path": "scripts/build_realworld_validation_packet.py",
+      "previous_sha256": "250f094a8d0f5e62151da3fea13e7545389e5950ec011f717a93b4f044d117a5",
+      "current_sha256": "75bbdb983dc58371c6f4f6967977dd3cb7eb1e0d0ac1a7cf8e41a8148bf80ef0",
+      "change": "Dataset location/default-project-list adaptation only; no detector, prompt, rule or matcher semantic changes"
+    },
+    {
+      "path": "scripts/cross_defect_c1c5.py",
+      "previous_sha256": "0882e114f6bcacbb0e794ecb7b524a01d0080c6d4e1ae09f072afe6b7ce842f7",
+      "current_sha256": "da71813dbf410b30e09f33f04260e8a939e929e47ba648e6d89f9b8e638ddefc",
+      "change": "Dataset location/default-project-list adaptation only; no detector, prompt, rule or matcher semantic changes"
+    },
+    {
+      "path": "scripts/eval_stablecoin_specific.py",
+      "previous_sha256": "3f3fc70f84f885ca3781d0b3e5469dd06bae9fdf19ab99c98de76c395775d70e",
+      "current_sha256": "db0dfe11c3ffbe5bc9243c5848c97d32b45c46e7f00e4890dd8cb52b4829523b",
+      "change": "Dataset location/default-project-list adaptation only; no detector, prompt, rule or matcher semantic changes"
+    },
+    {
+      "path": "scripts/evaluate_reachable65.py",
+      "previous_sha256": "2e3a6bde26218b062f8720a88cdcbe859123cedc803bba4c842be0938c3a545e",
+      "current_sha256": "0b6cecb422cd087f58ee228c3d892d146f444003ac5c5db98d98c27b4859ebb0",
+      "change": "Dataset location/default-project-list adaptation only; no detector, prompt, rule or matcher semantic changes"
+    },
+    {
+      "path": "scripts/scan_c1c5.py",
+      "previous_sha256": "84cd65babe25029f35567407a4d1feddde62fd37087208a70128a5deae706fb3",
+      "current_sha256": "aba6d41a0cc6a76c23d6ff5893826be62f0df77c1ceea3d062762e8c41479ec8",
+      "change": "Dataset location/default-project-list adaptation only; no detector, prompt, rule or matcher semantic changes"
+    }
+  ],
+  "original_labels": "provenance/REACHABLE65_ORIGINAL_LABELS.json",
+  "current_labels": "dataset/instances.json",
+  "source_inventory": "dataset/projects.json",
+  "tests_run": false,
+  "inference_api_calls": 0,
+  "original_workspace_changed": false
+}

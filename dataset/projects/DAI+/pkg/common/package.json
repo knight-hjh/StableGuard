@@ -1,0 +1,13 @@
+{
+  "name": "@overnight-contracts/common",
+  "version": "0.1.25",
+  "description": "Common contracts and scripts",
+  "main": "hardhat.config",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "hardhat test"
+  }
+}

@@ -33,9 +33,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 CSV = ROOT / "stablecoin_specific_full.csv"
-DATASET = ROOT / "dataset"
+DATASET = ROOT / "dataset" / "projects"
 
-# CSV 项目 -> dataset/ dir name (only the non-obvious ones need an entry).
+# CSV 项目 -> dataset/projects/ dir name (only the non-obvious ones need an entry).
 PROJECT_DIR = {
     "MIM": "MIM",                       # Abracadabra MIM (GmOracle), NOT MIMATIC
     "CASH（Opus CASH）": "CASH（Opus CASH）",

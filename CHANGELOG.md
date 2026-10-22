@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-22
+
+- Consolidated Dataset labels and project sources under dataset/.
+- Added 10 analysis trees and 22 historical reference trees, with byte hashes and source-version mapping.
+- Updated exported script path defaults without changing detector or matching semantics.
+- Preserved original label metadata and original method hashes in provenance/.
+- Documented source-version and redistribution prerequisites; no runtime validation performed.
+
 ## Unreleased
 
 ### 2026-10-18: Legacy repository preparation

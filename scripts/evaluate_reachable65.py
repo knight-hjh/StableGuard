@@ -17,7 +17,7 @@ def main() -> None:
     parser.add_argument("--scan-dir", required=True, type=Path)
     parser.add_argument(
         "--labels", type=Path,
-        default=ROOT / "benchmarks/reachable65/evaluation_only.json",
+        default=ROOT / "dataset/instances.json",
     )
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()

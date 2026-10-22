@@ -1,80 +1,76 @@
 # StableGuard (Legacy)
 
-**Static analysis and LLM-assisted recognition of backing-related defect mechanisms in stablecoin contracts.**
+Static analysis and LLM-assisted recognition of backing-related defect mechanisms
+in stablecoin smart contracts. This repository packages the legacy C1-C5 scanner,
+its rule knowledge base, the 65-instance Dataset, and inspectable project sources.
+It is not the newer M0-M3 implementation.
 
-This repository contains the legacy C1-C5 implementation associated with the
-Reachable-65 experiments. It combines Solidity candidate discovery, heuristic
-cross-function context augmentation, and subtype-specific LLM analysis. The
-original detector, prompt, rule knowledge base, and historical matcher are
-preserved. This is not the newer M0-M3 implementation.
-
-**Release status:** repository packaging and documentation are prepared.
-Installation and execution of this export have not yet been validated. No
-inference API was called during packaging.
-
-## Contents
-
-- [Overview](#overview)
-- [Requirements](#requirements)
-- [Quick start](#quick-start)
-- [Outputs](#outputs)
-- [Benchmark evaluation](#benchmark-evaluation)
-- [Additional utilities](#additional-utilities)
-- [Repository structure](#repository-structure)
-- [Reproducibility and limitations](#reproducibility-and-limitations)
-- [Documentation](#documentation)
-- [Contributing, security, and licensing](#contributing-security-and-licensing)
-
-## Overview
-
-The legacy taxonomy contains five macro categories and 19 named subtypes
-(`S01`-`S19`). These describe the analysis scope, not a guarantee of complete
-detection coverage.
-
-| Category | Focus |
-| --- | --- |
-| C1: Backing Mis-Valuation | Incorrect valuation or conversion of backing assets |
-| C2: Unbacked Issuance | Issuance inconsistent with the backing available or received |
-| C3: Supply-Backing Ledger Desynchronization | Inconsistent supply, liability, or backing accounting |
-| C4: Liquidation and Solvency Failure | Incorrect liquidation or loss-settlement behavior |
-| C5: Par-Redemption Violation | Violations of the intended issuance/redemption value relationship |
+## Repository structure
 
 ```text
-Solidity project
-  -> Slither-based candidate discovery
-  -> candidate function + selected callee bodies
-  -> subtype-specific rules and LLM judgment
-  -> structured alerts, candidate outcomes, and usage records
+StableGuard-legacy/
+  stableguard/                    Legacy detector, loader and LLM client
+  static_screening/               Subtype definitions and static support
+  config/knowledge_base/          C1-C5 / S01-S19 rule entries
+  scripts/                       Scanning and offline evaluation commands
+  dataset/
+    README.md                    Dataset scope and source-version limitations
+    instances.json               65 records, labels and source bindings
+    projects.json                Repository/version inventory and file counts
+    source-files.json            Per-file paths, sizes and SHA-256 values
+    project-list.txt             The 10 analysis project names
+    projects/
+      BAI/ BOB/ DAI+/ DEURO/ EURA/ EURE/ EUSD/ GYEN/ LVLUSD/ MIM/
+      snapshots/                 Available historical reference source trees
+    version-alignment.json       Existing version-alignment evidence
+    excluded-files.json          Files/directories not included in this export
+  docs/                          Configuration, outputs and reproducibility
+  provenance/                    Original identities and packaging changes
+  examples/                      Configuration and experiment-record examples
+  logs/                          Generated outputs (ignored by Git)
 ```
 
-### What does a positive result mean?
+There is one `dataset/` directory, not a separate benchmark directory. The source
+trees are physically included under `dataset/projects/`; JSON files describe and
+link those trees rather than substituting for them.
 
-The historical prompt uses **fix-agnostic mechanism recognition**. A result with
-`defect_present=true` may identify a mechanism location even when protection is
-present or the code is patched. It is not independent confirmation of an active
-vulnerability. The default scan does not run an adversarial-review/context-repair
-loop; source review must be distinguished from the initial model judgment.
+## Dataset
 
-The rule file's strict-evaluation header does not override the actual historical
-system prompt. This difference is documented rather than silently changed.
+| Category | Historical records |
+| --- | ---: |
+| C1: Backing Mis-Valuation | 15 |
+| C2: Unbacked Issuance | 14 |
+| C3: Supply-Backing Ledger Desynchronization | 10 |
+| C4: Liquidation and Solvency Failure | 14 |
+| C5: Par-Redemption Violation | 12 |
+| Total | 65 |
+
+The 65 records cover 10 projects. This export contains 32 source
+trees: 10 analysis working-tree copies and 22 historical
+reference snapshots. Together they contain 21,337
+packaged files, including 10,090 Solidity
+files. Counts include copies shared across different versions, not unique content.
+
+The original IDs, categories and historical matching fields are retained.
+**A packaged source tree is not automatically the vulnerable audit version.**
+Existing source-alignment records contain differing versions, missing pins and
+duplicate annotations. Each instance records the available source candidates and
+the remaining version gaps; no label was silently changed during packaging.
+See [Dataset documentation](dataset/README.md).
 
 ## Requirements
 
-- Python 3.10 or newer.
-- Linux or a compatible POSIX environment; the scanner uses alarm signals.
-- Python dependencies listed in `requirements.txt`.
-- The target project's exact Solidity compiler, build configuration, and dependencies.
-- An authorized OpenAI-compatible API endpoint and its exact model identifier.
+- Python 3.10 or newer and a Linux/POSIX environment.
+- The Python packages in `requirements.txt`.
+- A project-compatible Solidity compiler and the project's pinned dependencies.
+- An authorized OpenAI-compatible API endpoint and an exact model identifier.
 
-Project loading supports Foundry, Hardhat, and plain Solidity inputs through
-Slither. Whether a particular checkout compiles depends on its own build setup;
-installing the Python requirements does not install every project's toolchain.
+Project source and available vendored libraries are included. Installed
+`node_modules`, compiler binaries and build caches are not included. Dependency
+lockfiles and build configuration are preserved where available; restore the
+versions they specify rather than installing arbitrary latest dependencies.
 
-## Quick start
-
-Run all commands from this repository root.
-
-### 1. Install Python dependencies
+## Installation and configuration
 
 ```bash
 python3 -m venv .venv
@@ -83,13 +79,7 @@ python -m pip install -r requirements.txt
 cp .env.example .env
 ```
 
-An editable installation is optional: `python -m pip install -e .`.
-Keep the checkout in place; standalone wheel distribution is not supported by
-the historical checkout-relative rule loader.
-
-### 2. Configure the provider
-
-Edit the local `.env` file:
+Configure the legacy environment-variable names in your local `.env`:
 
 ```dotenv
 SILICONFLOW_API_KEY=YOUR_API_KEY
@@ -97,166 +87,94 @@ SILICONFLOW_BASE_URL=https://YOUR_PROVIDER/v1
 SILICONFLOW_MODEL=EXACT_PROVIDER_MODEL_ID
 JOBS=1
 RUN_CROSS=0
+PROJECT_LIST=dataset/project-list.txt
 ```
 
-The `SILICONFLOW_*` names are retained for compatibility; the configured URL
-determines the backend. The distributed `.env.example` contains placeholders,
-not working credentials. Use only thinking parameters supported by your provider;
-see [configuration](docs/CONFIGURATION.md).
+The variable prefix is historical; the configured URL determines the provider.
+Do not commit real credentials. Keep the repository checkout: the knowledge base
+is loaded from a checkout-relative path. Standalone-wheel operation is not claimed.
 
-### 3. Prepare a project
+## Run the scanner
 
-Place an authorized checkout under `dataset/ExampleProtocol/`, retaining its
-original source layout, dependency locks, and build settings. Install the exact
-compiler and project dependencies separately. Complete protocol repositories and
-audit PDFs are not bundled with this code release.
+Run commands from this repository root. **Scanning sends source and subtype rules
+to the configured API and may incur charges.** The legacy scanner has no global
+token-budget enforcement. Its default per-request output limit remains 900 tokens.
 
-### 4. Run the scanner
-
-**The following command sends source excerpts and rules to the configured API
-and can incur charges. There is no global token-budget limit in this legacy entry point.**
+Scan one packaged analysis project:
 
 ```bash
-JOBS=1 SCAN_OUT=logs/example-run \
-  python scripts/scan_c1c5.py ExampleProtocol
+JOBS=1 SCAN_OUT=logs/deuro-run python scripts/scan_c1c5.py DEURO
 ```
 
-Multiple project directory names can be supplied in the same command. Use a
-separate output directory for every model/configuration. The copied scanner uses
-a fixed output limit of 900 tokens per candidate; it is not configured through
-an environment variable.
+Scan the ten projects listed in the Dataset:
 
-For compiler setup, checkpoint behavior, and troubleshooting, see the
-[first-run guide](docs/QUICKSTART.md).
+```bash
+JOBS=1 PROJECT_LIST=dataset/project-list.txt SCAN_OUT=logs/dataset-run \
+  python scripts/scan_c1c5.py
+```
 
-## Outputs
+These commands are usage instructions, not commands executed while packaging.
+The snapshot directory is reference material and is not silently scanned or
+merged with the analysis trees. Compilation may require project-specific setup.
+Use a separate output directory for each run: the legacy scanner skips an existing
+per-project result file, including one that records a failure.
 
-The scanner writes one JSON file per project under `SCAN_OUT`.
+## How rules reach the LLM
 
-| Field | Meaning |
-| --- | --- |
-| `status` | Project-level execution status, not proof of full coverage |
-| `n_candidates` | Number of candidates returned by static discovery |
-| `all_verdicts` | Candidate outcomes, including recorded errors or uncertainty |
-| `findings` | Candidates receiving a positive historical mechanism judgment |
-| `usage` | Recorded LLM token usage and call elapsed time |
+The static detector assigns a candidate subtype. The prompt builder selects that
+subtype's definition, positive signals, exclusions and financial impact from
+`config/knowledge_base/c1c5_kb.yaml`. It combines them with the candidate function
+and heuristically selected callee bodies. Default requests do not contain all
+subtype rules, Dataset labels or previous evaluation answers.
 
-An existing project JSON causes that project to be skipped. Checkpointing is
-project-level, not request-level. A project can finish with candidate errors,
-and recorded API time is not the complete tool's end-to-end runtime. See
-[output interpretation](docs/OUTPUT_FORMAT.md).
+The historical system prompt is **FIX-AGNOSTIC**: a positive mechanism/type match
+can be returned even for guarded or patched code. Such an alert is not by itself
+a confirmed exploitable defect. The default scan does not implement an independent
+adversarial-review and context-feedback loop. These semantics have not been changed.
 
-## Benchmark evaluation
+## Outputs and offline evaluation
 
-The explicit Reachable-65 selection is stored in
-`benchmarks/reachable65/evaluation_only.json`:
+Each project result includes `status`, `n_candidates`, `all_verdicts`,
+`findings` and recorded API `usage`. A project status of `ok` does not establish
+that every candidate produced a valid response. API elapsed time is not total
+tool end-to-end time.
 
-| Category | Positive labels |
-| --- | ---: |
-| C1 | 15 |
-| C2 | 14 |
-| C3 | 10 |
-| C4 | 14 |
-| C5 | 12 |
-| **Total** | **65** |
-
-These are historical evaluation labels, not a new source-validation result.
-They are not loaded by the scanner or sent to the model. The larger historical
-CSV pool and the later 62-root benchmark are separate artifacts.
-
-After collecting per-project outputs, run the offline evaluator:
+After freezing scan outputs, use the Dataset labels locally:
 
 ```bash
 python scripts/evaluate_reachable65.py \
-  --scan-dir logs/example-run \
-  --output logs/reachable65-recognition.json
+  --scan-dir logs/dataset-run \
+  --labels dataset/instances.json \
+  --output logs/dataset-recognition.json
 ```
 
-This command does not call an API. It uses the original project/subtype/file-alias
-matcher and reports **legacy recognition recall**, class-wise counts, missing
-projects, recorded errors, and unmatched alerts. A one-project example run is
-not a complete benchmark evaluation. The output path must not already exist.
-
-The wrapper does not compute strict precision or F1 without source review and
-aligned evaluation units. An unmatched alert is not automatically false, and a
-label match is not independent proof of a current vulnerability. See
-[evaluation semantics](docs/EVALUATION.md).
-
-## Additional utilities
-
-| Script | Purpose | Inference API |
-| --- | --- | --- |
-| `scan_c1c5.py` | Candidate discovery and LLM judgment | Yes |
-| `evaluate_reachable65.py` | Offline statistics on the frozen 65-label selection | No |
-| `eval_stablecoin_specific.py` | Original evaluator using the historical CSV pool | No |
-| `rerun_candidates_from_log.py` | Same-candidate source-excerpt reruns and legacy ablations | Yes |
-| `adjudicate_same_candidate_source.py` | Historical mechanism-level review | Yes |
-| `build_realworld_validation_packet.py` | Prepare review packets from local findings | No |
-| `cross_defect_c1c5.py` | Optional cross-defect composition analysis | Yes |
-
-Optional review retains historical mechanism semantics; it is not an automatic
-current-defect confirmation stage. Source-excerpt reruns and project scans do not
-necessarily give the model the same context. Composition is disabled by default.
-
-## Repository structure
-
-```text
-StableGuard-legacy/
-  stableguard/                 Project loader, detectors, prompts, LLM client
-  static_screening/lib/        C1-C5 / S01-S19 taxonomy
-  config/knowledge_base/       Original rule knowledge base
-  scripts/                    Scan, rerun, review, and evaluation entry points
-  benchmarks/reachable65/      Evaluation-only metadata
-  examples/                   Project-list and experiment-record templates
-  dataset/                    Local project inputs; ignored by Git
-  logs/                       Local run outputs; ignored by Git
-  provenance/                 Source identities and historical pins
-  docs/                       Detailed usage and evaluation documentation
-  .github/                    Issue and pull-request templates
-  .env.example                Placeholder environment configuration
-  pyproject.toml              Editable-install metadata
-  requirements.txt            Dependency requirements
-  stablecoin_specific_full.csv Historical finding pool
-```
-
-## Reproducibility and limitations
-
-The five core files match their recorded historical method hashes. Copied support
-utilities are separately inventoried; not every utility or dependency is pinned
-by those historical records. The generic scanner is not the locked experiment
-executor used for every historical run.
-
-Context recovery is heuristic: it uses first-by-name callee lookup, a depth limit,
-and character limits. Compilation fallback can provide partial coverage. The
-matcher does not establish exact function, source-version, or defect-root identity.
-These behaviors are preserved and described in the [architecture notes](docs/ARCHITECTURE.md).
-
-Reproducing historical numbers also requires the exact project revisions,
-dependencies, model configuration, inputs, and review records. This code export
-does not include the complete environment or guarantee historical performance.
-Use the [reproducibility guide](docs/REPRODUCIBILITY.md) to record a new run.
+The wrapper makes no API calls. It preserves the historical project/subtype/file-
+alias matcher and reports recognition recall over all 65 records, including missing
+projects in the denominator. It does not certify exact vulnerable roots or compute
+strict Precision/F1 without source review. An unmatched alert is not automatically
+a false positive. The output file must not already exist.
 
 ## Documentation
 
-| Document | Purpose |
-| --- | --- |
-| [Quick start](docs/QUICKSTART.md) | First execution and troubleshooting |
-| [Configuration](docs/CONFIGURATION.md) | Provider settings, limits, retries, optional utilities |
-| [Architecture](docs/ARCHITECTURE.md) | Actual legacy execution path |
-| [Outputs](docs/OUTPUT_FORMAT.md) | Status, alert, error, and cost interpretation |
-| [Evaluation](docs/EVALUATION.md) | Benchmark scope and metric boundaries |
-| [Reproducibility](docs/REPRODUCIBILITY.md) | Source, model, and environment records |
-| [Provenance](docs/PROVENANCE.md) | Export origins and checksum scope |
-| [Release checklist](docs/RELEASE_CHECKLIST.md) | Remaining publication decisions |
+- [Dataset and source layout](dataset/README.md)
+- [Quick start](docs/QUICKSTART.md)
+- [Configuration](docs/CONFIGURATION.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Output fields](docs/OUTPUT_FORMAT.md)
+- [Evaluation semantics](docs/EVALUATION.md)
+- [Reproducibility](docs/REPRODUCIBILITY.md)
+- [Export provenance](docs/PROVENANCE.md)
+- [Publication checklist](docs/RELEASE_CHECKLIST.md)
 
-## Contributing, security, and licensing
+## Publication status and licensing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for change boundaries and
-[SECURITY.md](SECURITY.md) for handling credentials and sensitive findings.
-Repository changes are recorded in [CHANGELOG.md](CHANGELOG.md).
+Local source packaging and documentation are prepared. No compilation, tests,
+installation checks, API experiments, Git initialization or GitHub upload were run
+as part of this revision. Dataset-path defaults in the exported scripts were
+adapted; detector logic, prompts, rules and matching criteria were not changed.
 
-**License pending:** no software license has been selected on behalf of the
-authors. The owner must add a license and review audit-metadata redistribution
-rights before public release. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-Author information, the final repository URL, and publication citation will be
-added after confirmation; this export does not invent them.
+Upstream source notices are retained where present. The owner still needs to
+choose StableGuard's license, review redistribution terms, supply author/citation
+details and perform separately authorized runtime validation before calling this
+a fully validated reproduction package. See [third-party notices](THIRD_PARTY_NOTICES.md),
+[contribution guidance](CONTRIBUTING.md) and [security reporting](SECURITY.md).

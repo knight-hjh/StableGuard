@@ -6,7 +6,7 @@ For each project: load -> run_detectors -> for each candidate render the C1-C5 p
 Output feeds scripts/eval_stablecoin_specific.py for per-S/per-C precision.
 
 Usage:
-  PROJECT_LIST=logs/_c1c5_projects.txt SCAN_OUT=logs/c1c5_scan python3 scripts/scan_c1c5.py
+  PROJECT_LIST=dataset/project-list.txt SCAN_OUT=logs/c1c5_scan python3 scripts/scan_c1c5.py
   python3 scripts/scan_c1c5.py EUSD DEURO              # explicit projects
 Env: SCAN_OUT (default logs/c1c5_scan), JOBS (default 4), SUBS (comma list to limit sub-types).
 """
@@ -27,7 +27,7 @@ from stableguard.llm.client import LLMClient
 from stableguard.llm.response_parser import parse_detection_response
 from static_screening.lib.stablecoin_specific import SUBDEFECTS
 
-DATASET = Path("dataset")
+DATASET = Path("dataset/projects")
 OUT = Path(os.getenv("SCAN_OUT", "logs/c1c5_scan")); OUT.mkdir(parents=True, exist_ok=True)
 PROBE = {d["project"]: d for d in json.loads(Path("logs/build_probe.json").read_text())} \
     if Path("logs/build_probe.json").exists() else {}
@@ -229,7 +229,7 @@ def main():
     if len(sys.argv) > 1:
         names = sys.argv[1:]
     else:
-        lf = os.getenv("PROJECT_LIST", "logs/_c1c5_projects.txt")
+        lf = os.getenv("PROJECT_LIST", "dataset/project-list.txt")
         names = [l.strip() for l in Path(lf).read_text().splitlines() if l.strip()]
     names = [n for n in names if (DATASET / n).is_dir()]
     logger.warning(f"C1-C5 hybrid scan: {len(names)} projects -> {OUT}/ (subs={SUBS or 'ALL'})")

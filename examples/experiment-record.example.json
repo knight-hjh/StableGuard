@@ -36,7 +36,7 @@
     "retry_policy": null
   },
   "input_scope": null,
-  "benchmark_metadata": null,
+  "dataset_metadata": null,
   "matching_policy": null,
   "output_directory": null,
   "coverage": {

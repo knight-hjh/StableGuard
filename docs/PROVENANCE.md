@@ -1,33 +1,33 @@
 # Export provenance
 
-Prepared on 2026-10-18 from the existing legacy C1-C5 modules.
+Initial legacy export: 2026-10-18. Dataset source packaging: 2026-10-22.
 
-The following copied files have the same content hashes as the historical
-Reachable-65 context-recovery method pins:
+The original detector, prompt and knowledge-base files are unchanged. Historical
+identities are preserved in `provenance/HISTORICAL_METHOD_PINS.json`.
+The exported scanner and legacy evaluator now use `dataset/projects/`; supporting
+source lookup utilities use the same path. The scanner's default project list is
+`dataset/project-list.txt`, and the offline wrapper reads `dataset/instances.json`.
+These path-only changes mean those scripts no longer have their original file hashes.
+See `provenance/PACKAGING_CHANGES.json` for before/after identities.
 
-- `scripts/scan_c1c5.py`
-- `stableguard/stablecoin_specific/prompt.py`
-- `stableguard/stablecoin_specific/detectors.py`
-- `config/knowledge_base/c1c5_kb.yaml`
-- `scripts/eval_stablecoin_specific.py`
+`provenance/EXPORT_MANIFEST.json` retains original copied-file identities together
+with current exported hashes for modified paths. `provenance/SHA256SUMS` covers the
+listed code and metadata, not every documentation/configuration file. Dataset source
+hashes are separately listed in `dataset/source-files.json` and `dataset/SHA256SUMS`.
+Hashes were generated from bytes used in the copy/write operation; no post-copy
+validation or test execution was performed.
 
-`provenance/HISTORICAL_METHOD_PINS.json` records those original identities.
-`provenance/EXPORT_MANIFEST.json` inventories all copied source files and their
-origins. `provenance/SHA256SUMS` covers copied files and the generated metadata
-listed there; it does not cover subsequently added documentation, packaging
-files, or the new offline evaluation wrapper.
+The 65 historical records retain their original fields. Source bindings were added
+without replacing labels. The prior normalized metadata bytes remain available as
+`provenance/REACHABLE65_ORIGINAL_LABELS.json`. The original audit-derived CSV is
+unchanged. The package does not convert historical mechanism matches into newly
+validated vulnerabilities.
 
-The evaluation-only JSON was reserialized without changing its fields. It is not
-claimed to retain the original JSON byte layout. The original CSV bytes are retained.
+Project copies include available source, tests, configuration, locks and vendored
+libraries. Original workspace sources were not modified. Declared checkout HEADs
+and prior snapshot manifests are provenance observations, not freshly authenticated
+commit-tree membership. Existing uncertainty is retained in the source mappings.
 
-Support modules such as the generic LLM client are copied from the existing
-workspace, but are not all covered by the five historical method pins. In
-particular, the generic client is not the frozen DeepSeek experiment executor.
-
-New files consist of repository documentation, packaging/configuration templates,
-the offline Reachable-65 wrapper, and provenance records. No copied source module
-was edited. Original workspace files and experiment results remain untouched.
-
-No API calls, installations, compilation, tests, or post-copy validation were
-performed as part of this organization task. Source identity information is not
-a claim that the exported environment has been executed successfully.
+No inference API calls, compilation, package installation, tests, dependency downloads,
+Git commands or GitHub upload were performed. The generic API client is not claimed
+to be the complete frozen executor of every historical experiment.

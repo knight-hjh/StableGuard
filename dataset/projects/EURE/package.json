@@ -1,0 +1,56 @@
+{
+  "name": "smart-contracts-v2",
+  "version": "1.0.0",
+  "description": "**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "forge test",
+    "hardhat-test": "npx hardhat test",
+    "lcov": "forge coverage --report lcov && genhtml -o report --branch-coverage lcov.info && read -p 'Open report in browser? [Y/n] ' -n 1 -r; echo; if [[ $REPLY =~ ^[Yy]$ ]] || [[ -z $REPLY ]]; then open report/index.html; fi",
+    "prettier": "prettier --write --plugin=prettier-plugin-solidity 'src/**/*.sol'",
+    "validate": "npx hardhat validate",
+    "deployAll": "sh ./script/deployAll.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monerium/smart-contracts-v2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monerium/smart-contracts-v2/issues"
+  },
+  "homepage": "https://github.com/monerium/smart-contracts-v2#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.4",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@openzeppelin/hardhat-upgrades": "^2.3.1",
+    "ethers": "^6.7.1",
+    "hardhat": "^2.17.4",
+    "hardhat-gas-reporter": "^1.0.9",
+    "hardhat-preprocessor": "^0.1.5",
+    "prettier": "^3.1.1",
+    "prettier-plugin-solidity": "^1.2.0"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-verify": "^1.0.0",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "@typechain/ethers-v6": "^0.4.0",
+    "@typechain/hardhat": "^8.0.0",
+    "@types/chai": "^4.2.0",
+    "@types/mocha": ">=9.1.0",
+    "bignumber.js": "^9.1.2",
+    "chai": "^4.2.0",
+    "solidity-coverage": "^0.8.1",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.2.0",
+    "typescript": "^5.4.3",
+    "web3": "^4.7.0"
+  }
+}

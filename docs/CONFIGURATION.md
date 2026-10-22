@@ -18,7 +18,7 @@ provider-specific model identities.
 
 | Setting | Historical behavior |
 | --- | --- |
-| Input root | `dataset/`, relative to the working directory |
+| Input root | `dataset/projects/`, relative to the working directory |
 | `SCAN_OUT` | Defaults to `logs/c1c5_scan` |
 | `JOBS` | Defaults to 4; the example configuration selects 1 |
 | `SUBS` | Optional comma-separated subtype IDs |
@@ -58,7 +58,7 @@ it is not identical to the scanner's augmented function context. It expects the
 input logs to be within the repository checkout.
 
 `adjudicate_same_candidate_source.py` also uses historical type/mechanism
-semantics and directly credits benchmark matches. Do not present its acceptance
+semantics and directly credits dataset matches. Do not present its acceptance
 fraction as independently source-confirmed exploitability precision.
 
 Composition can use `SOURCE_LOADER=filesystem` for source excerpts or its generic

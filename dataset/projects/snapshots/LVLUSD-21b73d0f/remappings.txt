@@ -1,0 +1,12 @@
+@level/src/=src/
+@level/config/=config/
+@level/script/=script/
+@level/test/=test/
+ds-test/=lib/ds-test/src/
+forge-std/=lib/forge-std/src/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+@openzeppelin-4.9.0/contracts/=lib/openzeppelin-contracts-4.9.0/contracts/
+@openzeppelin-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
+@solmate=lib/solmate
+@openzeppelin-upgrades/=lib/openzeppelin-foundry-upgrades/
+@uniswap-v3-core/=lib/v3-core/contracts/

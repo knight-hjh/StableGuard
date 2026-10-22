@@ -1,0 +1,21 @@
+[submodule "lib/forge-std"]
+	path = lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "lib/@openzeppelin/contracts"]
+	path = lib/@openzeppelin/contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "lib/@gnosis/auction"]
+	path = lib/@gnosis/auction
+	url = https://github.com/gnosis/ido-contracts
+[submodule "lib/@uniswap/v3-periphery"]
+	path = lib/@uniswap/v3-periphery
+	url = https://github.com/Uniswap/v3-periphery
+	branch = 0.8
+[submodule "lib/@uniswap/v3-core"]
+	path = lib/@uniswap/v3-core
+	url = https://github.com/Uniswap/v3-core
+	branch = 0.8
+[submodule "lib/base58-solidity"]
+	path = lib/base58-solidity
+	url = https://github.com/storyicon/base58-solidity
+	branch = v1.0.2

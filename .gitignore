@@ -21,9 +21,7 @@ __pycache__/
 build/
 dist/
 
-# Local project repositories, API artifacts, and generated reports
-/dataset/*
-!/dataset/README.md
+# API artifacts and generated reports; packaged dataset sources are included
 /logs/*
 !/logs/README.md
 /paper/
@@ -31,3 +29,11 @@ dist/
 node_modules/
 *.log
 .DS_Store
+
+# Runtime outputs created inside packaged projects
+artifacts/
+cache/
+out/
+coverage/
+typechain/
+typechain-types/

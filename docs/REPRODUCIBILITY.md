@@ -15,7 +15,7 @@ be described as the other configuration merely because both use the same model.
 - Record the repository URL and exact revision of every project.
 - Preserve dependency locks, compiler identity, remappings, and build settings.
 - Record relevant local changes rather than assuming a project name identifies its source.
-- Keep the selected benchmark metadata separate from model inputs.
+- Keep the selected dataset metadata separate from model inputs.
 - Identify the StableGuard code and rule versions, including deliberate changes.
 
 `provenance/HISTORICAL_METHOD_PINS.json` identifies five historical core files.
@@ -44,7 +44,7 @@ Report compilation and coverage gaps, transport/response failures, semantic
 judgments, and independent source-review conclusions separately. Retain partial
 outputs and do not silently rerun failures under a different model.
 
-Historical benchmark matching uses project/subtype/file aliases. Strict review
+Historical dataset matching uses project/subtype/file aliases. Strict review
 requires source version, relevant guards, financial role, reachable behavior,
 and the claimed mechanism. Do not treat a file-level match as a one-to-one
 confirmed defect root.
@@ -54,7 +54,7 @@ confirmed defect root.
 Keep provider-reported input/output tokens distinct from estimates. Specify
 whether retries and optional review are included. For elapsed time, distinguish
 LLM-call duration from end-to-end wall time and declare whether averaging is by
-request, project, source file, or benchmark instance.
+request, project, source file, or dataset instance.
 
 Use `examples/experiment-record.example.json` as a manual recording template.
 It is not an executable manifest and does not authorize API calls. Its null values

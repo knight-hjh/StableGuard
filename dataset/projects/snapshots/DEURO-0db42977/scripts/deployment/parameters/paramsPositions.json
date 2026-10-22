@@ -1,0 +1,18 @@
+[
+  {
+    "name": "MockVOLToken",
+    "type": "mock",
+    "chainName": "Sepolia",
+    "chainId": 11155111,
+    "collateralTknAddr": "0xC5Bdf340EE520965b0B8BeAA85B6bDbf90d5b277",
+    "minCollateral": 0.1,
+    "initialCollateral": 0.5,
+    "initialLimitZCHF": 40000,
+    "feesPercent": 2,
+    "liqPriceCHF": 1000,
+    "reservePercent": 10,
+    "durationDays": 15552000,
+    "challengePeriodSeconds": 901,
+    "minApplicationPeriodSeconds": 900
+  }
+]

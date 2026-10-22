@@ -3,7 +3,7 @@
 The default entry point is `scripts/scan_c1c5.py`.
 
 ```text
-dataset/<project>
+dataset/projects/<project>
   -> ProjectLoader / Slither
   -> run_detectors(contracts)
   -> candidate function and heuristic callee context
@@ -47,7 +47,7 @@ entry. This export preserves that implementation rather than silently fixing it.
 - It does not provide a complete typed workflow graph or closed-world proof.
 - It does not automatically send a positive result to an independent reviewer.
 - It does not respond to a semantic context-gap report by re-running extraction.
-- It does not establish source-version correctness of benchmark labels.
+- It does not establish source-version correctness of dataset labels.
 
 The separately included review and composition scripts are optional historical
 utilities, not evidence that every old scan used those stages.

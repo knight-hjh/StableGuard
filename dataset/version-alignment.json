@@ -1,0 +1,2622 @@
+{
+  "schema_version": 1,
+  "source_record_date": "2026-10-02",
+  "scope": "Local version-evidence inventory; not rescoring, a detector rerun, or a ground-truth rewrite.",
+  "normalization_notes": [
+    "Group-level AUDIT_COMMIT_VERIFIED used different hash-precision conventions; normalized_audit_reference_status distinguishes full hashes, abbreviations, registry-only, internal-unpinned and conflicting/missing references.",
+    "A full commit printed in a report is not by itself a complete authenticated vulnerable file or historical inference-input receipt.",
+    "SAME_DEFECT_SUPPORTED is retained only as the original reviewer field; normalized_mechanism_description explicitly denotes a conditional code mechanism, not a final defect verdict or true positive.",
+    "Per-row source comparisons cover listed local target pairs under each group's provenance limits. Mixed LVLUSD rows retain incompatible candidate versions and do not select a unique vulnerable snapshot.",
+    "Full evidence, code fragments and original reasons remain in the referenced source row. Brief reasons were not copied for all groups; follow review_json_pointer.",
+    "No strict match was established in this bounded audit. Null match fields must not be converted into false positives or zero Recall."
+  ],
+  "rows": [
+    {
+      "evaluation_id": "GT-001",
+      "project": "EUSD",
+      "finding_id": "TOB-RES-14",
+      "subtype": "S05",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "3f1d16f0b62869c7fc932f8e9887826f5c93ce56"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L01-EUSD-TOB-RES-14-S05::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-3f1d16f0",
+          "commit": "3f1d16f0b62869c7fc932f8e9887826f5c93ce56",
+          "locations": [
+            "contracts/p1/RToken.sol::issue:L95-198"
+          ],
+          "audit_report": "dataset/EUSD/audits/trail-of-bits-2022-08-reserve-protocol-fixreview.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Recovered alerts name redeemTo in p0/p1, not the audited issue path. Historical finding validity can coexist with an excluded current issuance mechanism.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/0",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-002",
+      "project": "EUSD",
+      "finding_id": "TRST-M-7",
+      "subtype": "S01",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "722fea63e9fd30802b1278bc9763c9b0fed80d71"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L02-EUSD-TRST-M-7-S01::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-722fea63",
+          "commit": "722fea63e9fd30802b1278bc9763c9b0fed80d71",
+          "locations": [
+            "RTokenAsset.sol:refresh/tryPrice"
+          ],
+          "audit_report": "dataset/EUSD/audits/Trust Security - Reserve Audit Report 3_1_0.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/1",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-003",
+      "project": "EUSD",
+      "finding_id": "TRST-M-11",
+      "subtype": "S01",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "722fea63e9fd30802b1278bc9763c9b0fed80d71"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L03-EUSD-TRST-M-11-S01::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-722fea63",
+          "commit": "722fea63e9fd30802b1278bc9763c9b0fed80d71",
+          "locations": [
+            "CurveStableMetapoolCollateral.sol:refresh"
+          ],
+          "audit_report": "dataset/EUSD/audits/Trust Security - Reserve Audit Report 3_1_0.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Gold title/source label and report-body subclass differ; original gold is preserved. An inherited base function is not automatically the same defect root.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/2",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-004",
+      "project": "EUSD",
+      "finding_id": "M-17",
+      "subtype": "S15",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "df7ecadc2bae74244ace5e8b39e94bc992903158"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L04-EUSD-M-17-S15::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-9cda9d89",
+          "commit": "9cda9d89c871e70886fc4453f94fc6aa889445df",
+          "locations": [
+            "Asset.sol:L102 / FiatCollateral.sol:L149 / OracleLib.sol:L14-31"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 2.1.0.md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": false,
+          "support_explanation": "Primary finding pin differs; registry version/equivalence is not supported."
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/3",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-005",
+      "project": "EUSD",
+      "finding_id": "M-20",
+      "subtype": "S02",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "df7ecadc2bae74244ace5e8b39e94bc992903158"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L05-EUSD-M-20-S02::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-df7ecadc",
+          "commit": "df7ecadc2bae74244ace5e8b39e94bc992903158",
+          "locations": [
+            "RecollateralizationLib.sol::collateralShortfall:L449-452"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 2.1.0.md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "DIFFERENT_BYTES_ONLY",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/4",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "DIFFERENT_BYTES_ONLY"
+    },
+    {
+      "evaluation_id": "GT-006",
+      "project": "EUSD",
+      "finding_id": "M-06",
+      "subtype": "S02",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "9ee60f142f9f5c1fe8bc50eef915cf33124a534f"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L06-EUSD-M-06-S02::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-9ee60f14",
+          "commit": "9ee60f142f9f5c1fe8bc50eef915cf33124a534f",
+          "locations": [
+            "CurveStableMetapoolCollateral.sol::tryPrice:L83-86"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 3.0.0 (collaterals).md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/5",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-007",
+      "project": "EUSD",
+      "finding_id": "M-09",
+      "subtype": "S02",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "9ee60f142f9f5c1fe8bc50eef915cf33124a534f"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L07-EUSD-M-09-S02::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-9ee60f14",
+          "commit": "9ee60f142f9f5c1fe8bc50eef915cf33124a534f",
+          "locations": [
+            "RTokenAsset.sol::tryPrice/_updateCachedPrice:L53-69,L163-175"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 3.0.0 (collaterals).md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/6",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-008",
+      "project": "EUSD",
+      "finding_id": "M-06",
+      "subtype": "S02",
+      "audit_version_status": "AMBIGUOUS_OR_MISSING",
+      "audit_commits": [],
+      "registry_snapshot": [],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "remaining_gaps": [
+        "Finding-specific immutable version and local contest-to-upstream equivalence were not established; no neighboring finding's revision is substituted.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/7",
+      "normalized_audit_reference_status": "CONFLICTING_OR_MISSING_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-009",
+      "project": "EUSD",
+      "finding_id": "M-07",
+      "subtype": "S01",
+      "audit_version_status": "REGISTRY_REFERENCE_ONLY",
+      "audit_commits": [],
+      "registry_snapshot": [
+        {
+          "root_id": "L09-EUSD-M-07-S01::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-c4ec2473",
+          "commit": "c4ec2473bbcb4831d62af55d275368e73e16b984",
+          "locations": [
+            "RevenueTrader.sol::manageToken (furnace.melt skip)"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 3.0.0 (core).md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": null,
+          "support_explanation": "Reference only; finding-specific primary version binding not established."
+        }
+      ],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "remaining_gaps": [
+        "No independently established finding-specific version; legacy_possible_alerts is empty.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/8",
+      "normalized_audit_reference_status": "REGISTRY_REFERENCE_ONLY",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-010",
+      "project": "EUSD",
+      "finding_id": "M-10",
+      "subtype": "S02",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "c4ec2473bbcb4831d62af55d275368e73e16b984"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L10-EUSD-M-10-S02::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-c4ec2473",
+          "commit": "c4ec2473bbcb4831d62af55d275368e73e16b984",
+          "locations": [
+            "BackingManager.sol::rebalance try/catch:L94"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 3.0.0 (core).md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "DIFFERENT_BYTES_ONLY",
+      "remaining_gaps": [
+        "The entire oracle-deprecation-to-settlement/loss mechanism was not established.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/9",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "DIFFERENT_BYTES_ONLY"
+    },
+    {
+      "evaluation_id": "GT-011",
+      "project": "DEURO",
+      "finding_id": "C-02",
+      "subtype": "S04",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": null,
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "reason": "The offer-only transfer is present at recovered line 316, but FINAL_REPORT explicitly resolves C-02 by correcting a stale README, not by changing code. The supplied economic-defect interpretation is not established by the unresolved intermediate spec narrative.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/0",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-012",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF-034",
+      "subtype": "S06",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "03a88fc298bd1ea886bd6f3b7c707946f6004fbc",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-e7b7e379",
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "DIFFERENT_BYTES_ONLY",
+      "reason": "CS-ZCHF-034 is explicitly Version 3, not the e7b7e379 Version 1 registry reference. The 03a88fc2 Position file matches the correction receipt. Current accounting/closure paths differ, but the full overlapping-challenge/re-mint root is not established or excluded.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "L12 archive receipt provides file-level commit-addressed provenance, not a recomputed Git object graph, complete dependency closure, deployment, or model-input receipt.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/1",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "DIFFERENT_BYTES_ONLY"
+    },
+    {
+      "evaluation_id": "GT-013",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF-035",
+      "subtype": "S06",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "03a88fc298bd1ea886bd6f3b7c707946f6004fbc",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-e7b7e379",
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "Report Version 3 and L12 receipt independently bind 03a88fc2, not e7b7e379. The old challengeData returns uncapped phases. Current notifyChallengeStarted has alive, which rejects a challenge initiated after expiry. Current _bid still uses start+phase; this is a guard difference, not proof that every pre-expiry challenge is unavertable after expiry or that the report's V4 patch was copied.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "L12 archive receipt provides file-level commit-addressed provenance, not a recomputed Git object graph, complete dependency closure, deployment, or model-input receipt."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/2",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-014",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF2-001",
+      "subtype": "S06",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "0d25d77110c3d50d6de3f7c4aec05e4abd64ddef",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-0d25d771",
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "The public report pins CS-ZCHF2-001 to initial Version 1. Current forceSale is guarded by noChallenge and current challenge creation by alive, corresponding to the report's stated restriction change. Snapshot path/registry alone do not authenticate the whole historical file.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/3",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-015",
+      "project": "DEURO",
+      "finding_id": "5.3",
+      "subtype": "S13",
+      "audit_version_status": "REGISTRY_REFERENCE_ONLY",
+      "audit_commits": [
+        {
+          "value": "a6db51",
+          "kind": "REPORT_ABBREVIATED_HASH_ONLY",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": false
+        }
+      ],
+      "registry_snapshot": null,
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "reason": "Section 5.3 matches the gold ID/title but describes short-expiry clone/expiredPurchasePrice abuse with a governance-risk disposition, not precisely the supplied immediate bid/_finishChallenge narrative. The report supplies only initial prefix a6db51; exact full commit and this root's recovered mechanism remain unestablished.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory.",
+        "Only initial a6db51 and retest 667267 are printed in the report; do not silently expand these to full commits.",
+        "No recovered V4 possible-alert binding is supplied for this gold row; code context is not a fabricated alert.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/4",
+      "normalized_audit_reference_status": "REPORT_ABBREVIATED_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-016",
+      "project": "DEURO",
+      "finding_id": "FINDING-1",
+      "subtype": "S04",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": null,
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "reason": "The intermediate report's FINDING-1 is an exact finding ID, and recovered offer-only settlement matches the quoted behavior. The consolidated C-02 resolution calls the README stale and corrects documentation. Do not reinterpret that as a proven reserve-loss defect or a code fix.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/5",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-017",
+      "project": "DEURO",
+      "finding_id": "H-06",
+      "subtype": "S04",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": "DEURO-1d6bcefb",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "reason": "Recovered reserve-shortfall minting and settlement are observable, but a protocol-wide insolvency cascade/permanent bad debt is not proven. The 1d6bcefb registry-reference copies match local current bytes, not an authenticated internal-audit commit.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/6",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-018",
+      "project": "DEURO",
+      "finding_id": "DEFI-RESERVE-CASCADE",
+      "subtype": "S04",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": "DEURO-1d6bcefb",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "reason": "DEFI-RESERVE-CASCADE is a preserved gold alias for the workflow table's 'Reserve depletion cascade', not a literal report finding ID. Matching repayment/reserve primitives does not demonstrate permanent bad debt or authenticate an audited source revision.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof.",
+        "Gold finding ID is an alias; report identity is established at narrative/table-entry level only.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/7",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-019",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF2-002",
+      "subtype": "S03",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "0d25d77110c3d50d6de3f7c4aec05e4abd64ddef",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-0d25d771",
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "CS-ZCHF2-002 describes uncovered debt after selling all collateral. Current forceSale explicitly calls coverLoss and burns/notifies principal when remainingCollateral==0 and debt remains, consistent with the report's stated correction. This does not establish other partial-collateral cases or full snapshot provenance.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/8",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-020",
+      "project": "DEURO",
+      "finding_id": "H-01",
+      "subtype": "S12",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": "DEURO-1d6bcefb",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "reason": "Conditional fee-on-transfer accounting mechanism is supported: current challenge records requested _collateralAmount after transferFrom without a received-balance delta, and the Roller has nominal-amount transfers. This supports the cited transfer-accounting root, not every claimed impact or deployment acceptance premise.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/9",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-021",
+      "project": "DEURO",
+      "finding_id": "H-03",
+      "subtype": "S12",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": "DEURO-1d6bcefb",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "reason": "Fixed challenge sizes/challengedAmount are present, but current settlement clamps requested size to current collateral balance. The report's full stuck-challenge/unliquidatable outcome under rebasing is not established by matching those fields.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/10",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-022",
+      "project": "EUSD",
+      "finding_id": "TOB-RES-14",
+      "subtype": "S05",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "3f1d16f0b62869c7fc932f8e9887826f5c93ce56"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L01-EUSD-TOB-RES-14-S05::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-3f1d16f0",
+          "commit": "3f1d16f0b62869c7fc932f8e9887826f5c93ce56",
+          "locations": [
+            "contracts/p1/RToken.sol::issue:L95-198"
+          ],
+          "audit_report": "dataset/EUSD/audits/trail-of-bits-2022-08-reserve-protocol-fixreview.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Recovered alerts name redeemTo in p0/p1, not the audited issue path. Historical finding validity can coexist with an excluded current issuance mechanism.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/10",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-023",
+      "project": "EUSD",
+      "finding_id": "TRST-M-6",
+      "subtype": "S11",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "722fea63e9fd30802b1278bc9763c9b0fed80d71"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L20-EUSD-TRST-M-6-S11::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-722fea63",
+          "commit": "722fea63e9fd30802b1278bc9763c9b0fed80d71",
+          "locations": [
+            "BackingManager.sol:forwardRevenue"
+          ],
+          "audit_report": "dataset/EUSD/audits/Trust Security - Reserve Audit Report 3_1_0.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/11",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-024",
+      "project": "LVLUSD",
+      "finding_id": "M-5",
+      "subtype": "S11",
+      "audit_version_status": "AMBIGUOUS_OR_MISSING",
+      "audit_commits": [
+        {
+          "commit": "5065d156f72b878db301907509eadb49760275d2",
+          "role": "Report final commit; declared file-hash association conflicts with later exact export",
+          "precision": "full_40_hex"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L21-LVLUSD-M-5-S11::positive",
+          "project": "LVLUSD",
+          "snapshot_id": "LVLUSD-868cb1c4",
+          "commit": "868cb1c47b3f65110452a973701b39356cf7b6f8",
+          "locations": [
+            "RewardsManager.sol:reward()"
+          ],
+          "audit_report": "dataset/LVLUSD/audits/v2/[0xMacro] Level v2 Security Review.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": null,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": [
+            {
+              "target_file_ref": "F039",
+              "analysis_file_ref": "F018",
+              "full_file_bytes_equal": false,
+              "normalization": "none"
+            }
+          ]
+        }
+      ],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "MIXED_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "brief_reason": "Report M-5 describes sweeping all excess collateral. Its declared target hash matches old 868cb1c4 bytes, while the receipted final 5065d156 target equals recovered analysis. Recovered reward takes a bounded yieldAmount, permitting retained collateral rather than forcing a full sweep.",
+      "remaining_gaps": [
+        "868cb1c4 is not independently proved to be the original audit commit.",
+        "Final-commit/file-hash conflict is unresolved.",
+        "A caller-selected amount does not enforce a nonzero buffer or prove the economic risk fixed.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/0",
+      "normalized_audit_reference_status": "CONFLICTING_OR_MISSING_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-025",
+      "project": "LVLUSD",
+      "finding_id": "M-01",
+      "subtype": "S11",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "08ffd7e9d81f7017498524e646bf3abba47426a4",
+          "role": "Pashov initial review",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "5065d156f72b878db301907509eadb49760275d2",
+          "role": "Fix review",
+          "precision": "full_40_hex"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L22-LVLUSD-M-01-S11::positive",
+          "project": "LVLUSD",
+          "snapshot_id": "LVLUSD-08ffd7e9",
+          "commit": "08ffd7e9d81f7017498524e646bf3abba47426a4",
+          "locations": [
+            "RewardsManager.sol::getAccruedYield"
+          ],
+          "audit_report": "dataset/LVLUSD/audits/v2/[Pashov] Level v2 Security Review.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": true,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": [
+            {
+              "target_file_ref": "F037",
+              "analysis_file_ref": "F018",
+              "full_file_bytes_equal": false,
+              "normalization": "none"
+            }
+          ]
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "brief_reason": "Pashov independently pins 08ffd7e9 and M-01 raw-amount summation. That report-selected local file differs from recovered RewardsManager, whose under-peg branch scales amounts by oracle price.",
+      "remaining_gaps": [
+        "Complete local Git-tree authentication and deployment/oracle correctness were not established.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/1",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-026",
+      "project": "EURA",
+      "finding_id": "6.3",
+      "subtype": "S14",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "2819ccd8b62b09ce948da5088acba7b0b575d3f8",
+          "role": "Version 1 / finding version",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "079d3b44d803dfe4e490d7b0cfdb79b213ec5c53",
+          "role": "Version 2",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "46e6d32837cbe97a4af0adb693e63afa0d01fc3e",
+          "role": "Version 3",
+          "precision": "full_40_hex"
+        }
+      ],
+      "registry_snapshot": [],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NO_COMPARABLE_TARGET",
+      "mechanism_comparison": "UNESTABLISHED",
+      "brief_reason": "ChainSecurity 6.3 is Version 1: frozen settlement rates and revokeCollateral front-running. Supplied alerts bind deployCollateral/setOracle, not revokeCollateral or triggerSettlement.",
+      "remaining_gaps": [
+        "No comparable original Version-1 full source target was established.",
+        "CollateralSettler and complete settlement behavior were not inspected.",
+        "Partially corrected report status is not a full-fix claim.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/2",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-027",
+      "project": "EUSD",
+      "finding_id": "TRST-M-9",
+      "subtype": "S02",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "722fea63e9fd30802b1278bc9763c9b0fed80d71"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L23-EUSD-TRST-M-9-S02::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-722fea63",
+          "commit": "722fea63e9fd30802b1278bc9763c9b0fed80d71",
+          "locations": [
+            "SFraxEthCollateral.sol:tryPrice/targetPerRef"
+          ],
+          "audit_report": "dataset/EUSD/audits/Trust Security - Reserve Audit Report 3_1_0.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/12",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-028",
+      "project": "LVLUSD",
+      "finding_id": "M-3",
+      "subtype": "S11",
+      "audit_version_status": "AMBIGUOUS_OR_MISSING",
+      "audit_commits": [
+        {
+          "commit": "5065d156f72b878db301907509eadb49760275d2",
+          "role": "Report final commit; declared file-hash association conflicts with later exact export",
+          "precision": "full_40_hex"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L24-LVLUSD-M-3-S11::positive",
+          "project": "LVLUSD",
+          "snapshot_id": "LVLUSD-868cb1c4",
+          "commit": "868cb1c47b3f65110452a973701b39356cf7b6f8",
+          "locations": [
+            "RewardsManager.sol:getAccruedYield:L85-102"
+          ],
+          "audit_report": "dataset/LVLUSD/audits/v2/[0xMacro] Level v2 Security Review.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": null,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": [
+            {
+              "target_file_ref": "F039",
+              "analysis_file_ref": "F018",
+              "full_file_bytes_equal": false,
+              "normalization": "none"
+            }
+          ]
+        }
+      ],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "MIXED_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "brief_reason": "Macro M-3 and its SHA256 identify old raw-amount summation bytes. The later report-final export instead equals recovered analysis with under-peg price scaling. Both targets are retained because the report incorrectly associates its old hash with its final commit.",
+      "remaining_gaps": [
+        "Original vulnerable commit remains unresolved; 868cb1c4 is a registry reference.",
+        "No unique historical target is selected through the report inconsistency.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/3",
+      "normalized_audit_reference_status": "CONFLICTING_OR_MISSING_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-029",
+      "project": "EUSD",
+      "finding_id": "TRST-M-2",
+      "subtype": "S05",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "93d2831b2c5885ad69a27403de7436f7c4ca04b8"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L25-EUSD-TRST-M-2-S05::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-93d2831b",
+          "commit": "93d2831b2c5885ad69a27403de7436f7c4ca04b8",
+          "locations": [
+            "BasketHandler.sol::issuancePremium / quote"
+          ],
+          "audit_report": "dataset/EUSD/audits/Reserve_PR_4_0_0_v1.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "The report names BasketHandler without disambiguating p0/p1; both full-path pairs are retained separately. Current premium configuration/freshness is unknown.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/13",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-030",
+      "project": "EUSD",
+      "finding_id": "TRST-M-2",
+      "subtype": "S05",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "93d2831b2c5885ad69a27403de7436f7c4ca04b8"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L25-EUSD-TRST-M-2-S05::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-93d2831b",
+          "commit": "93d2831b2c5885ad69a27403de7436f7c4ca04b8",
+          "locations": [
+            "BasketHandler.sol::issuancePremium / quote"
+          ],
+          "audit_report": "dataset/EUSD/audits/Reserve_PR_4_0_0_v1.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "The report names BasketHandler without disambiguating p0/p1; both full-path pairs are retained separately. Current premium configuration/freshness is unknown.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/14",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-031",
+      "project": "EUSD",
+      "finding_id": "TRST-M-1",
+      "subtype": "S05",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "102a7611230106dcd0674e36051aac0a1b53541d"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L27-EUSD-TRST-M-1-S05::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-102a7611",
+          "commit": "102a7611230106dcd0674e36051aac0a1b53541d",
+          "locations": [
+            "CurveAppreciatingRTokenFiatCollateral.sol / CurveStableRTokenMetapoolCollateral.sol"
+          ],
+          "audit_report": "dataset/EUSD/audits/individual-plugins/Reserve_ETH_Plus_LP_v1.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/15",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-032",
+      "project": "EUSD",
+      "finding_id": "M-12",
+      "subtype": "S18",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "c4ec2473bbcb4831d62af55d275368e73e16b984"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L28-EUSD-M-12-S18::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-9cda9d89",
+          "commit": "9cda9d89c871e70886fc4453f94fc6aa889445df",
+          "locations": [
+            "RToken.sol::redeemCustom:L245-338; BasketHandler.sol:L437-440"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 3.0.0 (core).md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": false,
+          "support_explanation": "Primary finding pin differs; registry version/equivalence is not supported."
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "DIFFERENT_BYTES_ONLY",
+      "remaining_gaps": [
+        "Full redeemCustom, historical-basket and upward-depeg mechanism comparison remains incomplete.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/16",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "DIFFERENT_BYTES_ONLY"
+    },
+    {
+      "evaluation_id": "GT-033",
+      "project": "DEURO",
+      "finding_id": "H-02",
+      "subtype": "S12",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": "DEURO-1d6bcefb",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "reason": "The report's unchecked raw-transfer mechanism is present in challenge and Roller collateral paths; return values are not checked before nominal accounting. No fresh claim about exactly 14 calls, admissible malicious tokens, or exploit execution is made.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/11",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-034",
+      "project": "DEURO",
+      "finding_id": "M-05",
+      "subtype": "S13",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": null,
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "reason": "The implicit-infinite-allowance mechanism for trusted minters is present in the recovered allowance override and is an accepted trust-model risk in the report. This does not prove an actual compromised minter, reachable drain, or historical payload identity.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/12",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-035",
+      "project": "DEURO",
+      "finding_id": "H-2.1",
+      "subtype": "S13",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "0db42977b331bd25a12e3a6da767b7df18a5d66b",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-0db42977",
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "BlockBite explicitly pins its original source to 0db42977 and reports H-2.1's missing position registration/hub checks. Current challenge uses validPos; the modifier checks the position's registered parent against this hub. This guards the reported arbitrary-position entry, without establishing byte provenance for the local old snapshot.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory.",
+        "No recovered V4 possible-alert binding is supplied for this gold row; code context is not a fabricated alert."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/13",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-036",
+      "project": "EURE",
+      "finding_id": "H2",
+      "subtype": "S13",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "b5e2473bae9339e1349839962eebd10251553a46",
+          "role": "Original review",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "2705e9aa99eebd632b43532937bd8b8033fc24b1",
+          "role": "Fix review 1.1",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "8f0ad4dcaa4aabd2d0bc08b487197a46366fcc5d",
+          "role": "Additional W4 fix review 1.2",
+          "precision": "full_40_hex"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L31-EURE-H2-S13::positive",
+          "project": "EURE",
+          "snapshot_id": "EURE-b5e2473b",
+          "commit": "b5e2473bae9339e1349839962eebd10251553a46",
+          "locations": [
+            "ControllerToken.sol::transfer_withCaller,mintTo_withCaller"
+          ],
+          "audit_report": "dataset/EURE/audits/v2.0.0-ackee-blockchain-monerium-smart-contracts-report-1.2.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": true,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": [
+            {
+              "target_file_ref": "F036",
+              "analysis_file_ref": "F012",
+              "full_file_bytes_equal": false,
+              "normalization": "none"
+            }
+          ]
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "brief_reason": "H2 is the owner-settable frontend forwarding an arbitrary caller. Files differ, including transfer validation, but both retain setFrontend and mintTo_withCaller checking the supplied caller. Report H2 mitigation is hardcoded frontends, not the added transfer validator.",
+      "remaining_gaps": [
+        "Deployed derived-token/frontend selection and actual exploitability were not established.",
+        "Full local Git-tree identity is not authenticated.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/4",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-037",
+      "project": "EURA",
+      "finding_id": "AGL-02",
+      "subtype": "S14",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "2819ccd",
+          "role": "Sigma initial review",
+          "precision": "report_abbreviation"
+        },
+        {
+          "commit": "271e6bb",
+          "role": "Retest",
+          "precision": "report_abbreviation"
+        },
+        {
+          "commit": "48ae7f8",
+          "role": "Governor-only remediation",
+          "precision": "report_abbreviation"
+        },
+        {
+          "commit": "a14d3e4",
+          "role": "Governor-only remediation",
+          "precision": "report_abbreviation"
+        }
+      ],
+      "registry_snapshot": [],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NO_COMPARABLE_TARGET",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "brief_reason": "AGL-02 concerns Guardian escalation, not any privileged setter. The report changes affected functions to Governor-only, and recovered setOracle has onlyRole(GOVERNOR_ROLE). This supports that branch guard difference only.",
+      "remaining_gaps": [
+        "No original full-file target.",
+        "Other three finding branches were not inspected.",
+        "Short report commits remain short.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/5",
+      "normalized_audit_reference_status": "REPORT_ABBREVIATED_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-038",
+      "project": "DEURO",
+      "finding_id": "5.2",
+      "subtype": "S13",
+      "audit_version_status": "REGISTRY_REFERENCE_ONLY",
+      "audit_commits": [
+        {
+          "value": "a6db51",
+          "kind": "REPORT_ABBREVIATED_HASH_ONLY",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": false
+        }
+      ],
+      "registry_snapshot": "DEURO-a6db51d5",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "Report 5.2 explicitly shows initialize external onlyOwner without an initialized-state check. Current initialize is onlyHub and reverts on expiration!=0. The local a6db51d5 candidate reproduces the report's old function, but the report states only a6db51, not a verified full hash.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory.",
+        "Only initial a6db51 and retest 667267 are printed in the report; do not silently expand these to full commits.",
+        "No recovered V4 possible-alert binding is supplied for this gold row; code context is not a fabricated alert."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/14",
+      "normalized_audit_reference_status": "REPORT_ABBREVIATED_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-039",
+      "project": "GYEN",
+      "finding_id": "QSP-1",
+      "subtype": "S13",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "ce551e8",
+          "role": "Quantstamp source",
+          "precision": "report_abbreviation"
+        },
+        {
+          "commit": "4961a30",
+          "role": "Documentation mitigation",
+          "precision": "report_abbreviation"
+        }
+      ],
+      "registry_snapshot": [],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NO_COMPARABLE_TARGET",
+      "mechanism_comparison": "UNESTABLISHED",
+      "brief_reason": "QSP-1, its centralized minter/capper premise and report commit are established. No recovered alert binding is supplied, so no analysis target is invented.",
+      "remaining_gaps": [
+        "Report Token_v1.sol hash is not paired to a recovered analysis file.",
+        "Actual role control and off-chain reserves are outside this audit.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/6",
+      "normalized_audit_reference_status": "REPORT_ABBREVIATED_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-040",
+      "project": "DEURO",
+      "finding_id": "M-04",
+      "subtype": "S12",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": "DEURO-1d6bcefb",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "reason": "The report raises post-admission upgradeable-collateral behavior, but no identified token implementation upgrade or reachable changed-behavior case is supplied. Shared openPosition basename and admission checks alone do not establish that defect.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/15",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-041",
+      "project": "DAI+",
+      "finding_id": "M1",
+      "subtype": "S09",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "291d5be",
+          "role": "Ackee original audit 1.0",
+          "precision": "report_abbreviation"
+        },
+        {
+          "commit": "abfbc55",
+          "role": "Issue review 1.1",
+          "precision": "report_abbreviation"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L34-DAI-M1-S09::positive",
+          "project": "DAIPLUS",
+          "snapshot_id": "DAIPLUS-291d5be7",
+          "commit": "291d5be70802da0314cd3f6978a96c68fe0c9569",
+          "locations": [
+            "Exchange.sol::_buy:L312-319 (also redeem, payout)"
+          ],
+          "audit_report": "dataset/DAI+/audits/ackee_2023-03-03.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": true,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": [
+            {
+              "target_file_ref": "F035",
+              "analysis_file_ref": "F006",
+              "full_file_bytes_equal": false,
+              "normalization": "none"
+            }
+          ]
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "brief_reason": "M1 concerns ignored false transfer returns. The report listing matches local original _buy. Recovered _buy uses SafeERC20.safeTransferFrom and requires recipient balance == prior balance + amount. The report revision 1.1 independently documents the balance check; the later alert claim of no balance delta is not supported by these recovered bytes.",
+      "remaining_gaps": [
+        "Only _buy is compared; no all-M1-functions fix is claimed.",
+        "Report commits are abbreviated; the full registry hash extension is not independently proven.",
+        "Recovered bytes are not proved to be abfbc55; complete local Git-tree identity is unverified.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/7",
+      "normalized_audit_reference_status": "REPORT_ABBREVIATED_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-042",
+      "project": "BAI",
+      "finding_id": "PVE-007",
+      "subtype": "S12",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "d72839d",
+          "role": "PeckShield initial source",
+          "precision": "report_abbreviation"
+        },
+        {
+          "commit": "c0a5bc3",
+          "role": "Aggregate post-fix source; PVE-007 resolved by asset policy",
+          "precision": "report_abbreviation"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L35-BAI-PVE-007-S12::positive",
+          "project": "BAI",
+          "snapshot_id": "BAI-556100c8",
+          "commit": "556100c8827a0a851e1d033c65f7f5a228549ef5",
+          "locations": [
+            "BorrowerOperations.sol::addColl (and _activePoolAddColl/openVault/adjustVault)"
+          ],
+          "audit_report": "dataset/BAI/audits/PeckShield audit report (05:22:2022).pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": false,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": [
+            {
+              "target_file_ref": "F034",
+              "analysis_file_ref": "F002",
+              "full_file_bytes_equal": true,
+              "normalization": "none"
+            }
+          ]
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "brief_reason": "BAI-556100c8 equals recovered BorrowerOperations, but the audit names d72839d/c0a5bc3. Both report and recovered addColl check transfer success then account using _amount; ActivePool also records _amount. Resolution excludes deflationary/rebasing tokens, not a SafeERC20 or balance-delta patch.",
+      "remaining_gaps": [
+        "Original d72839d full-file target is not established.",
+        "Registry-to-audit relationship is unsupported despite identical candidate bytes.",
+        "No deployed supported collateral was shown to violate the stated asset policy.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/8",
+      "normalized_audit_reference_status": "REPORT_ABBREVIATED_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-043",
+      "project": "DEURO",
+      "finding_id": "C-01",
+      "subtype": "S09",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": "DEURO-1d6bcefb",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "reason": "Recovered mintTo transfers amount and computes targetAmount from that same requested amount, not the received balance delta. This supports the conditional fee-on-transfer bridge mechanism; the report accepts it under standard-EUR-token deployment assumptions, which are not revalidated here.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/16",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-044",
+      "project": "BOB",
+      "finding_id": "5.1",
+      "subtype": "S10",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "444bd591bc464b254366525aa23cca5e84ebceb6",
+          "role": "Audited zkbob-contracts component",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "7ba4e7bbc92fc8d49486ec36606c1e6d5ceca7ce",
+          "role": "Separate CDP component, not BalancedMinter",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "c62404f4",
+          "role": "Report fix",
+          "precision": "report_abbreviation"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L37-BOB-5-1-S10::positive",
+          "project": "BOB",
+          "snapshot_id": "BOB-16b5443f",
+          "commit": "16b5443f6f0039312a26a8dcd944bc1fa08460e4",
+          "locations": [
+            "zkbob-contracts/src/minters/BalancedMinter.sol::_beforeMint,_beforeBurn"
+          ],
+          "audit_report": "dataset/BOB/audit/decurity/BOB_CDP-contracts-1.0.0-rc0-security-audit-report.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": false,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": []
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "brief_reason": "Report and L37 receipt bind 444bd591, not wrong-component BOB-16b5443f. Audited int128 narrowing can bypass quotas. Recovered hooks additionally require _amount < 1 << 127, matching the relevant range guard. The later balanceOf alert narrative is not this signed-cast mechanism.",
+      "remaining_gaps": [
+        "Recovered file is not authenticated as c62404f4.",
+        "Authorization, successful token calls and deployment remain additional premises.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/9",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-045",
+      "project": "LVLUSD",
+      "finding_id": "M-7",
+      "subtype": "S11",
+      "audit_version_status": "AMBIGUOUS_OR_MISSING",
+      "audit_commits": [
+        {
+          "commit": "5065d156f72b878db301907509eadb49760275d2",
+          "role": "Report final commit; declared file-hash association conflicts with later exact export",
+          "precision": "full_40_hex"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L38-LVLUSD-M-7-S11::positive",
+          "project": "LVLUSD",
+          "snapshot_id": "LVLUSD-21b73d0f",
+          "commit": "21b73d0fa2d009e134da8307009a54187c281968",
+          "locations": [
+            "LvlUSD token / RewardsManager.sol:reward()"
+          ],
+          "audit_report": "dataset/LVLUSD/audits/v2/[0xMacro] Level v2 Security Review.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": false,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": [
+            {
+              "target_file_ref": "F038",
+              "analysis_file_ref": "F018",
+              "full_file_bytes_equal": true,
+              "normalization": "none"
+            }
+          ]
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "MIXED_TARGET_BYTES",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "brief_reason": "Later L38 source export supersedes the initial pending inventory and binds final 5065d156 plus exact OpenZeppelin 4.9 dependency. Final RewardsManager, lvlUSD and ERC20Burnable equal inspected recovered files; burns do not update vault shares while yield subtracts vault.balanceOf(address(vault)). M-7 is acknowledged. The report-listed RewardsManager hash nevertheless identifies different old bytes.",
+      "remaining_gaps": [
+        "Report final-commit/hash conflict prevents a unique original snapshot claim.",
+        "Old registry 21b73d0f is not audit provenance.",
+        "Later source/compilation receipts do not establish runtime admission or evaluator-population rebound.",
+        "Operational multisig reconciliation is not established.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/10",
+      "normalized_audit_reference_status": "CONFLICTING_OR_MISSING_REFERENCE",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-046",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF2-004",
+      "subtype": "S10",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "0d25d77110c3d50d6de3f7c4aec05e4abd64ddef",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-0d25d771",
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "The original report contrasts total equity-contract balance with economic equity excluding minter reserve. Current calculateInterest caps interest using deuro.equity(), and refresh calls it. A same refresh name/broad exposure alert does not preserve the old total-balance mechanism.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/17",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-047",
+      "project": "EUSD",
+      "finding_id": "TRST-M-1",
+      "subtype": "S05",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "c6bbf00ae374a2fd1c7a970b91f4cbf514ea287c"
+      ],
+      "registry_snapshot": [],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NO_COMPARABLE_TARGET",
+      "mechanism_comparison": "UNESTABLISHED",
+      "remaining_gaps": [
+        "Full files at the declared audit pin are unavailable in the bounded inventory.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/17",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-048",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF-005",
+      "subtype": "S10",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "e7b7e379ba20c0e4ce0a3ce90db6ef46a0e56f89",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-e7b7e379",
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "CS-ZCHF-005 concerns malicious/incorrect external balanceOf bypassing exposure limits, not simply a direct donation. Current _mint increments internal minted and checks minted>limit, corresponding to the report's internal-accounting correction. The recovered alert's balance-snapshot wording is not root proof.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/18",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-049",
+      "project": "EUSD",
+      "finding_id": "3",
+      "subtype": "S15",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "946d9b101dd77275c6cbfe0bfe9457927bd221a9"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L42-EUSD-3-S15::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-946d9b10",
+          "commit": "946d9b101dd77275c6cbfe0bfe9457927bd221a9",
+          "locations": [
+            "EURFiatCollateral.sol::refresh"
+          ],
+          "audit_report": "dataset/EUSD/audits/Solidified - Audit Report - Reserve Protocol.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Declared report commit agrees, but the local snapshot already contains the recommended p2>0 guard; original vulnerable source bytes remain unresolved."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "remaining_gaps": [
+        "Declared pin and vulnerable description conflict with the local guarded snapshot. The report marks finding 3 fixed; no pre-fix revision or local receipt resolves the byte provenance.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/18",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-050",
+      "project": "EUSD",
+      "finding_id": "M-16",
+      "subtype": "S15",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "df7ecadc2bae74244ace5e8b39e94bc992903158"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L43-EUSD-M-16-S15::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-9cda9d89",
+          "commit": "9cda9d89c871e70886fc4453f94fc6aa889445df",
+          "locations": [
+            "AssetRegistry.sol::refresh/unregister; CTokenFiatCollateral.sol::refresh/refPerTok"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 2.1.0.md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": false,
+          "support_explanation": "Primary finding pin differs; registry version/equivalence is not supported."
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Correction receipt is evaluator-only, not inference input. Commit object graph, full dependency closure and exploit execution remain unverified.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/19",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-051",
+      "project": "EUSD",
+      "finding_id": "M-08",
+      "subtype": "S02",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "9ee60f142f9f5c1fe8bc50eef915cf33124a534f"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L44-EUSD-M-08-S02::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-9ee60f14",
+          "commit": "9ee60f142f9f5c1fe8bc50eef915cf33124a534f",
+          "locations": [
+            "CurveStableRTokenMetapoolCollateral.sol::tryPairedPrice:L46-54"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 3.0.0 (collaterals).md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "DIFFERENT_BYTES_ONLY",
+      "remaining_gaps": [
+        "Full paired-price timeout, refresh, and redemption propagation is not established.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/20",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "DIFFERENT_BYTES_ONLY"
+    },
+    {
+      "evaluation_id": "GT-052",
+      "project": "EUSD",
+      "finding_id": "M-04",
+      "subtype": "S15",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "3f133997e186465f4904553b0f8e86ecb7bbacbf"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L45-EUSD-M-04-S15::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-9cda9d89",
+          "commit": "9cda9d89c871e70886fc4453f94fc6aa889445df",
+          "locations": [
+            "BackingManager.sol::settleTrade/rebalance:L92; DutchTrade.sol:L222"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 4.0.0.md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": false,
+          "support_explanation": "Primary finding pin differs; registry version/equivalence is not supported."
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "NO_COMPARABLE_TARGET",
+      "mechanism_comparison": "UNESTABLISHED",
+      "remaining_gaps": [
+        "No local full target bytes at the report's contest commit, and no equivalence proof to registry 9cda9d89.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/21",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-053",
+      "project": "DEURO",
+      "finding_id": "DEFI-ROLLER-FLASHMINT",
+      "subtype": "S17",
+      "audit_version_status": "INTERNAL_REPORT_UNPINNED",
+      "audit_commits": [],
+      "registry_snapshot": null,
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "reason": "DEFI-ROLLER-FLASHMINT is a gold alias for a workflow table entry, not a literal report finding ID. Current roll performs a direct, uncaught burnFrom after mint. A reverted burn does not by itself establish surviving mint state; no skipped-burn or swallowed-failure path is evidenced. Keep the annotation and prediction outcome unresolved.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Internal report is not commit-pinned; preserved source/line quotations are not a full-file byte identity proof.",
+        "Gold finding ID is an alias; report identity is established at narrative/table-entry level only.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/19",
+      "normalized_audit_reference_status": "INTERNAL_REPORT_WITHOUT_VERIFIED_COMMIT",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-054",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF-036",
+      "subtype": "S16",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "03a88fc298bd1ea886bd6f3b7c707946f6004fbc",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": null,
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "DIFFERENT_BYTES_ONLY",
+      "reason": "CS-ZCHF-036 is explicitly Version 3. The old withdraw balance-equality check survives as a similar pattern in current rescueToken, but the supplied alert binds transferChallengedCollateral instead. Combined pre-transfer-hook/double-entry-point reachability and cross-function root identity are unestablished; do not claim a fix merely from renaming.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "L12 archive receipt provides file-level commit-addressed provenance, not a recomputed Git object graph, complete dependency closure, deployment, or model-input receipt.",
+        "Full reported defect mechanism/premises are not established across the inspected versions."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/20",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "DIFFERENT_BYTES_ONLY"
+    },
+    {
+      "evaluation_id": "GT-055",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF-038",
+      "subtype": "S16",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "03a88fc298bd1ea886bd6f3b7c707946f6004fbc",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-e7b7e379",
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "CS-ZCHF-038 is Version 3, not the registry's Version 1. Old notifyChallengeSucceeded transfers collateral before cooldown; current notifyChallengeSucceeded sets cooldown before returning and the hub transfers challenged collateral later. The reported ordering difference is supported, not a universal reentrancy-safety claim.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "L12 archive receipt provides file-level commit-addressed provenance, not a recomputed Git object graph, complete dependency closure, deployment, or model-input receipt."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/21",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-056",
+      "project": "DEURO",
+      "finding_id": "CS-ZCHF-004",
+      "subtype": "S06",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "value": "e7b7e379ba20c0e4ce0a3ce90db6ef46a0e56f89",
+          "kind": "REPORT_FULL_COMMIT",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": true
+        }
+      ],
+      "registry_snapshot": "DEURO-e7b7e379",
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "The report's Version 1 root is equality checking expectedSize plus splitChallenge frontrunning. Current _bid clamps size rather than requiring equality; splitChallenge is absent from the inspected current hub. The report documents its removal in Version 3. This is not evidence that every possible challenge DoS is fixed.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/22",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-057",
+      "project": "EUSD",
+      "finding_id": "TRST-H-1",
+      "subtype": "S01",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "102a7611230106dcd0674e36051aac0a1b53541d"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L48-EUSD-TRST-H-1-S01::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-102a7611",
+          "commit": "102a7611230106dcd0674e36051aac0a1b53541d",
+          "locations": [
+            "CurveAppreciatingRTokenSelfReferentialCollateral.sol (get_virtual_price/refPerTok)"
+          ],
+          "audit_report": "dataset/EUSD/audits/individual-plugins/Reserve_ETH_Plus_LP_v1.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "DIFFERENT_BYTES_ONLY",
+      "remaining_gaps": [
+        "Pool deployment, remove_liquidity callback ordering and inherited reentrancy exclusion remain unestablished.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/22",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "DIFFERENT_BYTES_ONLY"
+    },
+    {
+      "evaluation_id": "GT-058",
+      "project": "DEURO",
+      "finding_id": "5.7",
+      "subtype": "S06",
+      "audit_version_status": "REGISTRY_REFERENCE_ONLY",
+      "audit_commits": [
+        {
+          "value": "a6db51",
+          "kind": "REPORT_ABBREVIATED_HASH_ONLY",
+          "role": "audited_initial_or_finding_affected_version",
+          "full_commit_verified": false
+        }
+      ],
+      "registry_snapshot": "DEURO-a6db51d5",
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "reason": "Report 5.7 uses position.price()!=expectedPrice, permitting a tiny decrease to invalidate a bid to challenge. Current challenge rejects only liqPrice<minimumPrice and comments explain the tolerance. This is a supported guard change; the report's abbreviated audit commit does not authenticate the registry's full hash.",
+      "remaining_gaps": [
+        "Original historical model request/payload bytes are unavailable; current V4 recovered binding is not historical payload proof.",
+        "No strict alert+historical-source+defect-root proof; strict_prediction_match remains null.",
+        "Inspected local snapshot lacks an independently established whole-file commit binding in this bounded inventory.",
+        "Only initial a6db51 and retest 667267 are printed in the report; do not silently expand these to full commits."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "DEURO",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_DEURO.json",
+      "review_artifact_sha256": "20548ca637966837e279408a0b1d9f3862f26512cd6676ab227a2d5ae6cc3d0c",
+      "review_json_pointer": "/rows/23",
+      "normalized_audit_reference_status": "REPORT_ABBREVIATED_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-059",
+      "project": "EUSD",
+      "finding_id": "M-03",
+      "subtype": "S18",
+      "audit_version_status": "AMBIGUOUS_OR_MISSING",
+      "audit_commits": [],
+      "registry_snapshot": [],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NOT_ESTABLISHED",
+      "mechanism_comparison": "UNESTABLISHED",
+      "remaining_gaps": [
+        "Finding-specific original commit and target bytes remain unestablished; report duplicate grouping is context, not byte identity or root deduplication.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/23",
+      "normalized_audit_reference_status": "CONFLICTING_OR_MISSING_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-060",
+      "project": "EUSD",
+      "finding_id": "M-04",
+      "subtype": "S18",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "fdd9f81fe58953d758dbea62beed169a74523de1"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L51-EUSD-M-04-S18::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-df7ecadc",
+          "commit": "df7ecadc2bae74244ace5e8b39e94bc992903158",
+          "locations": [
+            "RToken.sol::redeem / BackingManager.sol::manageTokens (flash issuance)"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 2.1.0.md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": false,
+          "support_explanation": "Primary finding pin differs; registry version/equivalence is not supported."
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "NO_COMPARABLE_TARGET",
+      "mechanism_comparison": "UNESTABLISHED",
+      "remaining_gaps": [
+        "No local complete target files at fdd9f81f or proven equivalence to df7ecadc.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/24",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "UNESTABLISHED"
+    },
+    {
+      "evaluation_id": "GT-061",
+      "project": "EUSD",
+      "finding_id": "M-15",
+      "subtype": "S18",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "df7ecadc2bae74244ace5e8b39e94bc992903158"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L52-EUSD-M-15-S18::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-df7ecadc",
+          "commit": "df7ecadc2bae74244ace5e8b39e94bc992903158",
+          "locations": [
+            "Furnace.sol::melt:L70; RToken.sol::redeem"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 2.1.0.md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "DIFFERENT_BYTES_ONLY",
+      "remaining_gaps": [
+        "Payout timing, ordering, issuance delays and economic premises were not established or replayed.",
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/25",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "DIFFERENT_BYTES_ONLY"
+    },
+    {
+      "evaluation_id": "GT-062",
+      "project": "EURA",
+      "finding_id": "6.1",
+      "subtype": "S19",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "2819ccd8b62b09ce948da5088acba7b0b575d3f8",
+          "role": "Version 1 / finding version",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "079d3b44d803dfe4e490d7b0cfdb79b213ec5c53",
+          "role": "Version 2",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "46e6d32837cbe97a4af0adb693e63afa0d01fc3e",
+          "role": "Version 3",
+          "precision": "full_40_hex"
+        }
+      ],
+      "registry_snapshot": [],
+      "registry_snapshot_supported": null,
+      "source_comparison_status": "NO_COMPARABLE_TARGET",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "brief_reason": "ChainSecurity 6.1 is Version 1 and risk accepted. Recovered _readAll reuses the Chainlink ratio for the unfinished Uniswap path; its constructor comment warns of the same incompatible circuits. This supports the conditional mechanism, not exact historical bytes or actual misconfiguration.",
+      "remaining_gaps": [
+        "Original Version-1 full-file target is absent from the bounded inventory.",
+        "Actual circuits and complete inherited code were not audited.",
+        "Risk acceptance is not a code fix.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/11",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-063",
+      "project": "EUSD",
+      "finding_id": "TRST-M-10",
+      "subtype": "S19",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "722fea63e9fd30802b1278bc9763c9b0fed80d71"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L53-EUSD-TRST-M-10-S19::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-722fea63",
+          "commit": "722fea63e9fd30802b1278bc9763c9b0fed80d71",
+          "locations": [
+            "MorphoNonFiatCollateral.sol:tryPrice"
+          ],
+          "audit_report": "dataset/EUSD/audits/Trust Security - Reserve Audit Report 3_1_0.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/26",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    },
+    {
+      "evaluation_id": "GT-064",
+      "project": "MIM",
+      "finding_id": "GMOCL-1",
+      "subtype": "S19",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        {
+          "commit": "f257c00412cb762a4de4c9ec195fe7241006d31d",
+          "role": "Guardian initial",
+          "precision": "full_40_hex"
+        },
+        {
+          "commit": "46dbe2efd236de23b02e4ef8d0723633cf291700",
+          "role": "Guardian final",
+          "precision": "full_40_hex"
+        }
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L54-MIM-GMOCL-1-S19::positive",
+          "project": "MIM",
+          "snapshot_id": "MIM-46ad8622",
+          "commit": "46ad8622cfe620b85473b829ca39e2bfb53f858c",
+          "locations": [
+            "GmOracleWithAggregator.sol::_get:L61"
+          ],
+          "audit_report": "dataset/MIM/audits/11-14-2023_Abracadabra_GMXV2.pdf",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported": false,
+          "support_scope": "Report/finding/version association only; no whole-tree or original-model-input proof.",
+          "candidate_comparisons": [
+            {
+              "target_file_ref": "F040",
+              "analysis_file_ref": "F020",
+              "full_file_bytes_equal": true,
+              "normalization": "none"
+            }
+          ]
+        }
+      ],
+      "registry_snapshot_supported": false,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "SAME_DEFECT_SUPPORTED",
+      "brief_reason": "Guardian pins f257c004/46dbe2ef, not registry 46ad8622. The report-selected initial local file differs from analysis; the supplied registry candidate equals it. Both _get implementations pass indexTokenPrice into both index and long-token slots. The issue is acknowledged subject to supported-market restrictions.",
+      "remaining_gaps": [
+        "46ad8622-to-audit association is unsupported.",
+        "Full initial local Git-tree authentication and deployed market selection were not established.",
+        "Byte differences do not imply a fix.",
+        "Original historical model input bytes remain independently unproven.",
+        "No fully proven historical alert + source + complete root chain; strict_prediction_match stays null."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "OTHER",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_OTHER.json",
+      "review_artifact_sha256": "b0c3940f42c7b3b11fc85cc20ed0d6463f929e954d414a45f1dcb60a2f4a0610",
+      "review_json_pointer": "/rows/12",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "CONDITIONAL_CODE_MECHANISM_PRESENT_NOT_A_FINAL_DEFECT_VERDICT"
+    },
+    {
+      "evaluation_id": "GT-065",
+      "project": "EUSD",
+      "finding_id": "M-02",
+      "subtype": "S19",
+      "audit_version_status": "AUDIT_COMMIT_VERIFIED",
+      "audit_commits": [
+        "9ee60f142f9f5c1fe8bc50eef915cf33124a534f"
+      ],
+      "registry_snapshot": [
+        {
+          "root_id": "L55-EUSD-M-02-S19::positive",
+          "project": "EUSD",
+          "snapshot_id": "EUSD-9ee60f14",
+          "commit": "9ee60f142f9f5c1fe8bc50eef915cf33124a534f",
+          "locations": [
+            "CTokenV3Collateral.sol::_underlyingRefPerTok:L56"
+          ],
+          "audit_report": "dataset/EUSD/audits/Code4rena - Reserve Audit Report - Release 3.0.0 (collaterals).md",
+          "location_text_equal": true,
+          "status": "REGISTRY_REFERENCE_NOT_SOURCE_PROOF",
+          "supported_as_report_audit_version": true,
+          "support_explanation": "Primary report pin agrees; this does not authenticate snapshot commit-tree membership or original model input."
+        }
+      ],
+      "registry_snapshot_supported": true,
+      "source_comparison_status": "DIFFERENT_TARGET_BYTES",
+      "mechanism_comparison": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED",
+      "remaining_gaps": [
+        "Original historical model request bytes and exact alert-source-root chain were not established. Recovered V4 hashes authenticate only the recovered binding.",
+        "No TP/FP, revised detection metric, exploit reproduction or new independent defect root is inferred.",
+        "Local source membership in the declared upstream Git commit was not cryptographically recomputed. Report pins, local manifest and target context are the stated provenance basis.",
+        "Complete-file comparison covers only listed target pairs, not the whole repository/dependency closure."
+      ],
+      "strict_prediction_match": null,
+      "original_input_byte_identity_verified": false,
+      "review_group": "EUSD",
+      "review_artifact": "paper/evaluation/reachable65_source_alignment_20261002/ALIGNMENT_EUSD.json",
+      "review_artifact_sha256": "f5b74df511d7a1a7748665568a94988ac55d643624e1a251bc079fd225f805ec",
+      "review_json_pointer": "/rows/27",
+      "normalized_audit_reference_status": "REPORT_FULL_COMMIT_REFERENCE",
+      "normalized_mechanism_description": "GUARD_OR_FIX_DIFFERENCE_SUPPORTED"
+    }
+  ]
+}

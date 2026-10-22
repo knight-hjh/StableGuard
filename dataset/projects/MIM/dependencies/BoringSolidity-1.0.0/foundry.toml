@@ -1,0 +1,17 @@
+[profile.default]
+solc_version = "0.8.9"
+auto_detect_solc = false
+optimizer = true
+optimizer_runs = 500
+src = 'contracts'
+out = 'out'
+libs = ["lib"]
+verbosity = 1
+via_ir = false
+auto_detect_remappings = true
+ffi = false
+gas_reports = ["*"]
+remappings = [
+    '/=contracts',
+    'forge-std/=lib/forge-std/src/'
+]
