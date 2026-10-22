@@ -1,0 +1,33 @@
+# Credentials and private settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.agents/
+.codex/
+.claude/
+
+# Environments and generated Python artifacts
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# Local project repositories, API artifacts, and generated reports
+/dataset/*
+!/dataset/README.md
+/logs/*
+!/logs/README.md
+/paper/
+/results/
+node_modules/
+*.log
+.DS_Store

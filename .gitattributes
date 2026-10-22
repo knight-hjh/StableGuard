@@ -1,0 +1,4 @@
+# Preserve copied source bytes and the published provenance hashes.
+* -text
+# New documentation uses LF line endings.
+*.md text eol=lf
