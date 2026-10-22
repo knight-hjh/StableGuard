@@ -2,3 +2,6 @@
 * -text
 # New documentation uses LF line endings.
 *.md text eol=lf
+
+# Preserve bundled project bytes for dataset/SHA256SUMS.
+dataset/projects/** -text
