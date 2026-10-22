@@ -1,0 +1,31 @@
+{
+  "source_record": "paper/evaluation/reachable65_v4pro_context_recovery_20260922/positive_alert_review/error_attribution/AUDIT.json",
+  "scope": "Five core files pinned by the historical context-recovery experiment",
+  "files": [
+    {
+      "bytes": 11375,
+      "path": "scripts/scan_c1c5.py",
+      "sha256": "84cd65babe25029f35567407a4d1feddde62fd37087208a70128a5deae706fb3"
+    },
+    {
+      "bytes": 7781,
+      "path": "stableguard/stablecoin_specific/prompt.py",
+      "sha256": "28fad7b030e5e659c6e3bbef0b06e44882fb8ac609a6f327431113eb11d0446a"
+    },
+    {
+      "bytes": 37085,
+      "path": "stableguard/stablecoin_specific/detectors.py",
+      "sha256": "80b3852a843953e4fe6c5c45b483ed0c30babe8e2e23e2c2c3a81c40978802ce"
+    },
+    {
+      "bytes": 18390,
+      "path": "config/knowledge_base/c1c5_kb.yaml",
+      "sha256": "f8848381c7b4a5bcc95946aa09e84084a31a9d63a8880939324d79db7837690a"
+    },
+    {
+      "bytes": 10790,
+      "path": "scripts/eval_stablecoin_specific.py",
+      "sha256": "3f3fc70f84f885ca3781d0b3e5469dd06bae9fdf19ab99c98de76c395775d70e"
+    }
+  ]
+}

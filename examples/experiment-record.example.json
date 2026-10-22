@@ -1,0 +1,67 @@
+{
+  "template_only": true,
+  "executable_manifest": false,
+  "api_authorization": false,
+  "run_id": null,
+  "task": "legacy_project_scan",
+  "started_at": null,
+  "finished_at": null,
+  "code_revision": null,
+  "rule_identity": null,
+  "environment": {
+    "os": null,
+    "python": null,
+    "dependency_record": null
+  },
+  "projects": [
+    {
+      "name": null,
+      "repository": null,
+      "revision": null,
+      "local_changes": null,
+      "compiler": null,
+      "dependency_locks": null,
+      "build_settings": null
+    }
+  ],
+  "inference": {
+    "provider": null,
+    "endpoint": null,
+    "requested_model": null,
+    "returned_model": null,
+    "temperature": null,
+    "max_tokens": null,
+    "thinking_parameters": null,
+    "concurrency": null,
+    "retry_policy": null
+  },
+  "input_scope": null,
+  "benchmark_metadata": null,
+  "matching_policy": null,
+  "output_directory": null,
+  "coverage": {
+    "expected_projects": null,
+    "completed_projects": null,
+    "partial_projects": null,
+    "technical_failures": null
+  },
+  "cost": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null,
+    "llm_call_elapsed_seconds": null,
+    "end_to_end_elapsed_seconds": null,
+    "includes_retries": null,
+    "includes_independent_review": null,
+    "average_denominator": null,
+    "unknown_usage_attempts": null
+  },
+  "independent_review": {
+    "performed": null,
+    "method": null,
+    "accepted": null,
+    "rejected": null,
+    "unresolved": null
+  },
+  "notes": "Fill from actual observations. Never include credentials or infer unmeasured values."
+}

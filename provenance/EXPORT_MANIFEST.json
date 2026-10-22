@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "export_date": "2026-10-18",
+  "name": "StableGuard-legacy",
+  "scope": "Legacy C1-C5 / Reachable-65 scanner; not the newer M0-M3 implementation",
+  "copied_files": [
+    {
+      "path": "requirements.txt",
+      "source_path": "requirements.txt",
+      "bytes": 132,
+      "sha256": "eca452488457bd6106309d8ccf0b596217123b4e48be48d46f2c86ead7644e63",
+      "transformation": "none"
+    },
+    {
+      "path": "stablecoin_specific_full.csv",
+      "source_path": "stablecoin_specific_full.csv",
+      "bytes": 50863,
+      "sha256": "1466236bd6c68336b4db44237e321aa28b7e9a5aac42b083e28c7ea839837bcd",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/__init__.py",
+      "source_path": "stableguard/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/core/__init__.py",
+      "source_path": "stableguard/core/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/core/project_loader.py",
+      "source_path": "stableguard/core/project_loader.py",
+      "bytes": 9011,
+      "sha256": "be9a3c2159887f350643db1699c2204f0e16ec07ad29bea768c80d6f9d02800e",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/llm/__init__.py",
+      "source_path": "stableguard/llm/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/llm/client.py",
+      "source_path": "stableguard/llm/client.py",
+      "bytes": 7329,
+      "sha256": "e797fc74ead45181d6cf0c95d8e67792a6adeefd03535d39e7a4dfe228a2c182",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/llm/response_parser.py",
+      "source_path": "stableguard/llm/response_parser.py",
+      "bytes": 4705,
+      "sha256": "51391d89b2140d50f860cc51365baf3e96f4f82aade240fed8cfbf79aacb2392",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/stablecoin_specific/__init__.py",
+      "source_path": "stableguard/stablecoin_specific/__init__.py",
+      "bytes": 510,
+      "sha256": "9e27c7a3bca798d75e77e05b0ac279bae6047ea28906ebe4f0b2fb6bcc21db46",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/stablecoin_specific/detectors.py",
+      "source_path": "stableguard/stablecoin_specific/detectors.py",
+      "bytes": 37085,
+      "sha256": "80b3852a843953e4fe6c5c45b483ed0c30babe8e2e23e2c2c3a81c40978802ce",
+      "transformation": "none"
+    },
+    {
+      "path": "stableguard/stablecoin_specific/prompt.py",
+      "source_path": "stableguard/stablecoin_specific/prompt.py",
+      "bytes": 7781,
+      "sha256": "28fad7b030e5e659c6e3bbef0b06e44882fb8ac609a6f327431113eb11d0446a",
+      "transformation": "none"
+    },
+    {
+      "path": "static_screening/__init__.py",
+      "source_path": "static_screening/__init__.py",
+      "bytes": 411,
+      "sha256": "0d22a8ba99c75367c4578f98ec68273b588d4454629686e68ffc5d461d6b8d28",
+      "transformation": "none"
+    },
+    {
+      "path": "static_screening/lib/__init__.py",
+      "source_path": "static_screening/lib/__init__.py",
+      "bytes": 55,
+      "sha256": "0281ca68b078ca7e0a182fa6a6c0ccc471aa0533944eaa8b3d6e6c829f165f43",
+      "transformation": "none"
+    },
+    {
+      "path": "static_screening/lib/stablecoin_specific.py",
+      "source_path": "static_screening/lib/stablecoin_specific.py",
+      "bytes": 10947,
+      "sha256": "863cbfd414e4b96e1746165a41178a0febaae416545e298dcbd1bac9ca89bf0d",
+      "transformation": "none"
+    },
+    {
+      "path": "config/knowledge_base/c1c5_kb.yaml",
+      "source_path": "config/knowledge_base/c1c5_kb.yaml",
+      "bytes": 18390,
+      "sha256": "f8848381c7b4a5bcc95946aa09e84084a31a9d63a8880939324d79db7837690a",
+      "transformation": "none"
+    },
+    {
+      "path": "scripts/scan_c1c5.py",
+      "source_path": "scripts/scan_c1c5.py",
+      "bytes": 11375,
+      "sha256": "84cd65babe25029f35567407a4d1feddde62fd37087208a70128a5deae706fb3",
+      "transformation": "none"
+    },
+    {
+      "path": "scripts/eval_stablecoin_specific.py",
+      "source_path": "scripts/eval_stablecoin_specific.py",
+      "bytes": 10790,
+      "sha256": "3f3fc70f84f885ca3781d0b3e5469dd06bae9fdf19ab99c98de76c395775d70e",
+      "transformation": "none"
+    },
+    {
+      "path": "scripts/rerun_candidates_from_log.py",
+      "source_path": "scripts/rerun_candidates_from_log.py",
+      "bytes": 7600,
+      "sha256": "bc544a57fb274544c68c7423c7ed8c7636207a0e8a3f8caa7c11f91ad3fcaef2",
+      "transformation": "none"
+    },
+    {
+      "path": "scripts/build_realworld_validation_packet.py",
+      "source_path": "scripts/build_realworld_validation_packet.py",
+      "bytes": 5504,
+      "sha256": "250f094a8d0f5e62151da3fea13e7545389e5950ec011f717a93b4f044d117a5",
+      "transformation": "none"
+    },
+    {
+      "path": "scripts/adjudicate_same_candidate_source.py",
+      "source_path": "scripts/adjudicate_same_candidate_source.py",
+      "bytes": 8105,
+      "sha256": "a6f5fce76fe93430bdd293481dc776bb474bff7d70c43ad7bcabe79282c1a57e",
+      "transformation": "none"
+    },
+    {
+      "path": "scripts/cross_defect_c1c5.py",
+      "source_path": "scripts/cross_defect_c1c5.py",
+      "bytes": 19774,
+      "sha256": "0882e114f6bcacbb0e794ecb7b524a01d0080c6d4e1ae09f072afe6b7ce842f7",
+      "transformation": "none"
+    }
+  ],
+  "historical_core": [
+    {
+      "path": "scripts/scan_c1c5.py",
+      "historical_sha256": "84cd65babe25029f35567407a4d1feddde62fd37087208a70128a5deae706fb3",
+      "export_sha256": "84cd65babe25029f35567407a4d1feddde62fd37087208a70128a5deae706fb3"
+    },
+    {
+      "path": "stableguard/stablecoin_specific/prompt.py",
+      "historical_sha256": "28fad7b030e5e659c6e3bbef0b06e44882fb8ac609a6f327431113eb11d0446a",
+      "export_sha256": "28fad7b030e5e659c6e3bbef0b06e44882fb8ac609a6f327431113eb11d0446a"
+    },
+    {
+      "path": "stableguard/stablecoin_specific/detectors.py",
+      "historical_sha256": "80b3852a843953e4fe6c5c45b483ed0c30babe8e2e23e2c2c3a81c40978802ce",
+      "export_sha256": "80b3852a843953e4fe6c5c45b483ed0c30babe8e2e23e2c2c3a81c40978802ce"
+    },
+    {
+      "path": "config/knowledge_base/c1c5_kb.yaml",
+      "historical_sha256": "f8848381c7b4a5bcc95946aa09e84084a31a9d63a8880939324d79db7837690a",
+      "export_sha256": "f8848381c7b4a5bcc95946aa09e84084a31a9d63a8880939324d79db7837690a"
+    },
+    {
+      "path": "scripts/eval_stablecoin_specific.py",
+      "historical_sha256": "3f3fc70f84f885ca3781d0b3e5469dd06bae9fdf19ab99c98de76c395775d70e",
+      "export_sha256": "3f3fc70f84f885ca3781d0b3e5469dd06bae9fdf19ab99c98de76c395775d70e"
+    }
+  ],
+  "benchmark_metadata": {
+    "source": "paper/evaluation/reachable65_v4pro_context_recovery_20260922/EVALUATION_ONLY.json",
+    "output": "benchmarks/reachable65/evaluation_only.json",
+    "transformation": "JSON serialization only; all original fields retained",
+    "evaluation_only": true
+  },
+  "support_utilities": "Copied from the current workspace legacy modules; not all utilities are pinned by the historical experiment",
+  "excluded": [
+    ".env and real credentials",
+    ".git and agent configuration",
+    "API request/response archives",
+    "project source repositories and audit PDFs",
+    "new-version modules v25 through v28_3",
+    "virtual environments and build caches"
+  ],
+  "validation": {
+    "tests_run": false,
+    "builds_run": false,
+    "inference_api_calls": 0,
+    "package_install_tested": false
+  },
+  "license": "Not assigned; requires repository owner decision"
+}

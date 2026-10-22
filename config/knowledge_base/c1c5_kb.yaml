@@ -1,0 +1,311 @@
+# Knowledge base for the C1-C5 / S01-S19 stablecoin-specific taxonomy.
+# Strict evaluation asks whether the defect mechanism is active in the frozen
+# revision. A complete current guard or accounting correction blocks the defect;
+# a partial or unrelated mitigation does not.
+
+S01:
+  macro: C1
+  name: "Self-referential backing valuation"
+  definition: >
+    A unit's price/value is derived from its OWN internal backing state (basket value,
+    totalSupply, reserve) and the freshness of that state depends on a SEPARATE refresh()/
+    melt()/drip() that is not guaranteed to run first — so a stale self-referential price
+    can be read and propagated.
+  pattern_signals:
+    - "price/value/refPerTok fn reads own token totalSupply() and a basket/range/reserve value"
+    - "freshness depends on a separate refresh()/melt()/exchangeRateCurrent() not called inline"
+    - "read-only-reentrancy pricing via pool get_virtual_price()/virtual_price"
+  not_this_defect:
+    - "price comes from an independent external oracle, not the unit's own state"
+    - "refresh/melt is invoked inline before the price read in the same call"
+  stablecoin_impact: "stale/inflated self-price mis-states backing → wrong mint/liquidation/redemption"
+  example: "EUSD RTokenAsset.tryPrice uses basket value + totalSupply; melt only in refresh()"
+
+S02:
+  macro: C1
+  name: "Degenerate oracle-failure price (0 / FIX_MAX) fire-sale"
+  definition: >
+    On oracle timeout/deprecation the price path returns a degenerate sentinel — (0, FIX_MAX),
+    type(uintN).max, or a huge 'valid' high — that still flows into backing/auction/redemption
+    and is treated as a real price.
+  pattern_signals:
+    - "price/tryPrice returns FIX_MAX / type(uint*).max / a (0, <huge>) pair, often in a catch"
+    - "oracle try/catch fallback that yields a sentinel rather than reverting"
+    - "a consumer (rebalance/shortfall/auction) uses such a price without sanity bounds"
+  not_this_defect:
+    - "the fallback reverts or the sentinel is explicitly rejected before use downstream"
+  stablecoin_impact: "assets sold at ~0 or accepted at absurd high → reserve fire-sale / unbacked"
+  example: "EUSD Asset.price returns (0, FIX_MAX) past priceTimeout; consumed by BackingManager"
+
+S19:
+  macro: C1
+  name: "Unit / dimension mismatch in valuation"
+  definition: >
+    The valuation pipeline chains components (oracle price x ref-exchange-rate x decimals) with
+    a wrong unit semantics, wrong reference asset, or wrong decimals — so backing value is
+    systematically mis-computed even though every feed is fresh, non-zero, and does not revert.
+  pattern_signals:
+    - "chained .mul()/multiplications of a feed price x refPerTok x decimals"
+    - "a feed configured for the wrong pair (e.g. wBTC/BTC used as wBTC/USD)"
+    - "refPerTok / underlyingRefPerTok using a token's wrong decimals"
+  not_this_defect:
+    - "units are explicitly documented and consistent across the chain; correct reference asset"
+  stablecoin_impact: "systematic over/under-valuation of collateral → mispriced mint & liquidation"
+  example: "EUSD MorphoNonFiatCollateral deployed with wBTC/BTC feed; CTokenV3 wrong decimals"
+
+S09:
+  macro: C2
+  name: "Mint-input vs collateral-received mismatch"
+  definition: >
+    A mint path transfers collateral IN then mints by the DECLARED amount instead of the
+    contract's actual received delta (balanceBefore/After) — under a fee-on-transfer/deflationary
+    collateral the difference is unbacked supply.
+  pattern_signals:
+    - "safeTransferFrom(...amount) followed by _mint(...amount) with no balanceBefore/After delta"
+    - "no require(received == amount) / no measured received amount"
+  not_this_defect:
+    - "mint uses a measured received delta (balanceOf(this) before/after)"
+    - "the collateral is a fixed, non-fee, non-rebasing token enforced elsewhere"
+  stablecoin_impact: "fee-on-transfer collateral → minted units exceed real backing"
+  example: "DEURO StablecoinBridge.mintTo mints by amount, not received delta (C-01)"
+
+S10:
+  macro: C2
+  name: "Issuance/backing ledger desyncs from real backing (cap bypass, reserve drain, quota desync)"
+  definition: >
+    The accounting that bounds issuance to real backing can DESYNC from the actual backing,
+    over-issuing or under-collateralizing. Three concrete forms: (a) the cap/equity/exposure is
+    read from a balanceOf SNAPSHOT (equity = balanceOf(reserve) - minterReserve; exposure =
+    token.balanceOf(this)) that a direct transfer inflates; (b) a path SPENDS or DRAINS the
+    minter/backing reserve (distributeProfits / interest accrual / refresh withdrawing from the
+    reserve) so reserve falls below what backs outstanding supply; (c) a mint/burn QUOTA or supply
+    ledger is updated asymmetrically — e.g. a burn (or withdraw) wrongly CREDITS the mint quota —
+    so spendable issuance capacity drifts away from real backing.
+  pattern_signals:
+    - "balanceOf(address(reserve)) or token.balanceOf(address(this)) used as an equity/cap basis"
+    - "a mint/quota/exposure limit computed from a live balance rather than an internal ledger"
+    - "interest/profit/refresh path that withdraws from or spends down the minter/backing reserve"
+    - "a mint/burn quota ledger where a burn/withdraw delta CREDITS mintable capacity (asymmetric +/-)"
+  not_this_defect:
+    - "a CORRECT monotonic counter: increments only on mint, hard-capped by an immutable limit,
+       with NO burn/withdraw/transfer path that re-credits or inflates issuance capacity"
+    - "a reserve balance that is only READ for availability and never spent below the backing level"
+  stablecoin_impact: "issuance capacity exceeds real backing → over-issuance / reserve shortfall → unbacked supply"
+  example: "DEURO equity()=balanceOf(reserve)-minterReserve; Savings.refresh spends minterReserve; BOB BalancedMinter burn credits mintQuota"
+
+S13:
+  macro: C2
+  name: "Authorization gap mints unbacked supply"
+  definition: >
+    The mint gate trusts attacker-satisfiable state — positions[msg.sender], a re-initializable
+    position/contract, or a *_withCaller forwarder — letting an attacker satisfy the check and
+    mint with no real collateral.
+  pattern_signals:
+    - "minter check via isMinter(positions[msg.sender]) / positions[msg.sender]"
+    - "initialize() with no initializer/one-time guard (re-initializable / ownership takeover)"
+    - "*_withCaller entrypoint forwarding an arbitrary caller into mint/transfer auth"
+    - "missing position-registration check before minting"
+  not_this_defect:
+    - "mint is gated by a fixed allowlist/role with a one-time, non-attacker-controlled setup"
+  stablecoin_impact: "zero-collateral / unauthorized minting → unbacked supply, depeg"
+  example: "DEURO minterOnly trusts positions[]; Position.initialize callable >once"
+
+S16:
+  macro: C2
+  name: "Reentrancy/hook during liquidation mints unbacked/mispriced units"
+  definition: >
+    Liquidation/challenge settlement sends native coin or collateral with a callback to the
+    bidder BEFORE state is committed; the reentrant call mints unbacked or mispriced units
+    (an ERC-721 receive hook is isomorphic).
+  pattern_signals:
+    - "msg.sender.call{value: ...}(\"\") or external collateral transfer to bidder in a challenge/finish/settle fn"
+    - "state (challengedAmount/position) finalized AFTER the external transfer"
+    - "no nonReentrant guard around the settlement"
+  not_this_defect:
+    - "checks-effects-interactions respected (state committed before transfer) or nonReentrant present"
+  stablecoin_impact: "reenter to mint unbacked units or settle at a stale price"
+  example: "DEURO MintingHub._finishChallenge call{value:} to bidder before finalize"
+
+S17:
+  macro: C2
+  name: "Flash-mint / atomic mint-burn leaves unbacked supply if burn leg fails"
+  definition: >
+    A single-tx mint→burn roll has no cross-tx 'held == 0' invariant, so if the burn leg fails
+    or is skipped (e.g. an intermediate external call diverts flow), the minted units remain unbacked.
+  pattern_signals:
+    - "a roll/flash/leverage fn that both mint(...) and burn(...) within one call"
+    - "multiple external calls between the mint and the burn; no assert(net minted == net burned)"
+  not_this_defect:
+    - "an explicit invariant assert that net mint equals net burn at the end"
+  stablecoin_impact: "failed burn leg → unbacked stablecoin persists"
+  example: "DEURO PositionRoller.roll mint then burnFrom with no held==0 assert"
+
+S08:
+  macro: C3
+  name: "Coverage / minted-supply accounting desync (phantom backing)"
+  definition: >
+    A mint/burn path updates token supply but SKIPS the coverage/stocks ledger that a sibling
+    path updates, so the recorded coverage ratio overstates backing = phantom backing.
+  pattern_signals:
+    - "a burn fn calls _burn but not the stocks/coverage update (updateStocksUsers) a sibling burn calls"
+    - "asymmetric ledger maintenance across mint/burn entrypoints"
+  not_this_defect:
+    - "every supply-changing path updates the coverage ledger consistently"
+  stablecoin_impact: "overstated coverage = phantom backing → effectively unbacked supply"
+  example: "EURA AgToken.burnSelf skips updateStocksUsers that burnNoRedeem performs"
+
+S11:
+  macro: C3
+  name: "Un-reconciled supply / backing changes"
+  definition: >
+    Supply or backing changes are not reconciled to the protocol's backing obligation. This
+    includes reading backing / totalAssets from a manipulable raw balanceOf that does not
+    reflect burns, losses, depeg, or yield, and minting surplus backing as new supply without
+    preserving the backing buffer that the surplus was meant to maintain.
+  pattern_signals:
+    - "totalAssets/backing/reserves = balanceOf(asset) - estimate (e.g. getUnvestedAmount)"
+    - "yield/reward accrual reading a live balance not reconciled to issued supply"
+    - "minting basketsHeld - basketsNeeded without reserving the configured backingBuffer"
+    - "subtracting the pre-mint buffer from surplus but failing to recompute the larger post-mint backing obligation"
+  not_this_defect:
+    - "backing reconciled to an internal issued-vs-deployed ledger, not a raw balance"
+    - "surplus minting solves the post-mint ratio, for example x = held / (1 + buffer) - needed"
+    - "a discretionary reward-buffer withdrawal with no source-level link to value required by the current backing obligation"
+  stablecoin_impact: "mis-stated backing → under-collateralization on depeg / mis-paid yield"
+  example: "LVLUSD StakedlvlUSD.totalAssets = balanceOf - unvested; RewardsManager accrual"
+
+S12:
+  macro: C3
+  name: "Collateral-token behavior drift breaks backing accounting"
+  definition: >
+    Collateral is recorded at transfer-in amount then trusted forever; an upgradeable /
+    fee-on-transfer / rebasing collateral drifts post-hoc so the recorded amount != real balance.
+    Often compounded by raw (non-SafeERC20) transfers that fail silently.
+  pattern_signals:
+    - "collateral add/adjust records the requested amount; raw .transfer/.transferFrom (no SafeERC20)"
+    - "no handling for fee-on-transfer/rebasing collateral; balance trusted across time"
+  not_this_defect:
+    - "received delta measured each time; SafeERC20 + supported-token allowlist enforced on-chain"
+  stablecoin_impact: "recorded collateral > real → challenge/backing accounting breaks"
+  example: "DEURO Position._adjust raw transfers; rebasing collateral breaks challenge accounting"
+
+S03:
+  macro: C4
+  name: "Bad debt from liquidation never burned against equity"
+  definition: >
+    A liquidation/sale sells collateral but a residual principal+interest can remain WITHOUT
+    being burned against equity (coverLoss), leaving already-minted units unbacked.
+  pattern_signals:
+    - "forceSale/liquidation handles proceeds/principal/interest but a residual-debt branch may skip coverLoss/burn"
+    - "no path to socialize/absorb the shortfall into equity"
+  not_this_defect:
+    - "residual shortfall always burned against equity / explicitly socialized"
+  stablecoin_impact: "unburned bad debt = permanently unbacked stablecoin"
+  example: "DEURO Position.forceSale missing coverLoss on remainingCollateral==0 & debt>0"
+
+S04:
+  macro: C4
+  name: "Peg-reserve mints fresh stablecoin to cover liquidation losses (inflationary)"
+  definition: >
+    When the reserve is insufficient, the shortfall is covered by MINTING fresh stablecoin —
+    supply up, backing flat — an inflationary insolvency cascade.
+  pattern_signals:
+    - "a reserve-shortfall branch that calls _mint(recipient, amount - reserveLeft)"
+    - "covering a payout/loss by minting rather than by realized equity"
+  not_this_defect:
+    - "shortfall paid only from realized reserve/equity; revert if insufficient"
+  stablecoin_impact: "minting to cover losses dilutes backing → depeg spiral"
+  example: "DEURO _withdrawFromReserve mints amount-reserveLeft when reserve short"
+
+S06:
+  macro: C4
+  name: "Liquidation evasion / blocking keeps minting unbacked"
+  definition: >
+    An undercollateralized position cannot be closed (challenge never zeroes, challenge avertable,
+    collateral pulled, zero min-duration) yet can keep minting at an inflated price limit.
+  pattern_signals:
+    - "close/settlement keyed on challengedAmount reaching 0 (gameable by self/parallel challenge)"
+    - "challenge of an expired loan avertable; buyExpiredCollateral disincentivizes challenging"
+    - "minting not frozen after a successful challenge"
+  not_this_defect:
+    - "position deterministically closes and minting is frozen on challenge success"
+  stablecoin_impact: "open undercollateralized position keeps issuing unbacked supply"
+  example: "DEURO notifyChallengeSucceeded; challenges of expired loans averted (CS-ZCHF-034/035)"
+
+S07:
+  macro: C4
+  name: "Recovery-mode / global-LTV solvency trigger weaponized"
+  definition: >
+    Recovery mode / special liquidation is triggered by a GLOBAL aggregate LTV that a flash loan
+    can push past the threshold, liquidating otherwise-healthy positions.
+  pattern_signals:
+    - "is_recovery_mode / recovery threshold computed from a global aggregate LTV/health"
+    - "no resistance to single-tx flash-loan manipulation of the aggregate"
+  not_this_defect:
+    - "recovery uses a manipulation-resistant (e.g. time-averaged) measure"
+  stablecoin_impact: "healthy collateral force-liquidated → user loss, instability"
+  example: "Opus CASH shrine.is_recovery_mode on global LTV (Cairo — out of buildable scope)"
+
+S15:
+  macro: C4
+  name: "Collateral-refresh revert bricks the peg-keeping engine"
+  definition: >
+    A refresh round loops over collateral calling refresh()/price() with no per-item try/catch,
+    or a single collateral refresh() does revert-prone oracle work — a single revert aborts the
+    whole round, freezing mint/redeem/recollateralize/liquidate.
+  pattern_signals:
+    - "refresh()/rebalance/settle loops calling .refresh()/.price() with no per-item try/catch"
+    - "a collateral refresh()/tryPrice that can revert on oracle deprecation, propagated to the loop"
+  not_this_defect:
+    - "per-item try/catch isolates a single collateral's revert; round continues"
+  stablecoin_impact: "one bad collateral freezes the entire protocol's peg-keeping"
+  example: "EUSD AssetRegistry.refresh loops assets[].refresh(); EURFiatCollateral.refresh reverts"
+
+S05:
+  macro: C5
+  name: "Sub-peg collateral minted/redeemed at par"
+  definition: >
+    Collateral that is only IFFY / below peg is still minted or redeemed at PAR with no
+    issuancePremium / no SOUND gate, so an arbitrageur extracts value from backers.
+  pattern_signals:
+    - "issue/redeem gated only by status != DISABLED (permits IFFY), or no SOUND/isReady requirement"
+    - "issuancePremium falls back to par (FIX_ONE) when disabled/not saved"
+    - "soft-default refresh transitions (markStatus) that mis-gate the par decision"
+  not_this_defect:
+    - "issuance requires SOUND/isReady; premium correctly charged for sub-peg collateral"
+  stablecoin_impact: "peg-deviation arbitraged against backers; backing diluted at par"
+  example: "EUSD RToken.issue only blocks DISABLED (allows IFFY); BasketHandler.issuancePremium par fallback"
+
+S14:
+  macro: C5
+  name: "Privileged oracle/component reroute drains reserve at corrupted par"
+  definition: >
+    A privileged role can swap the oracle/component that DEFINES the redemption/conversion price;
+    after the swap a legitimate redemption path pays out at a forged par value.
+  pattern_signals:
+    - "setOracle / set*Oracle assigning col.oracle, gated by onlyRole/onlyOwner/Governor/Guardian"
+    - "redemption price subsequently read from the swappable oracle reference"
+  not_this_defect:
+    - "the redemption oracle is immutable / timelocked / multi-party governed with sanity bounds"
+  stablecoin_impact: "swapped oracle → redeem at forged par → reserve drained"
+  example: "EURA StableMaster.setOracle (GOVERNOR_ROLE); Guardian exploits (AGL-02)"
+
+S18:
+  macro: C5
+  name: "Unfair or ordering-sensitive redemption settlement"
+  definition: >
+    The full-redemption path pays par in full with no pro-rata cap when only momentarily fully
+    collateralized, burns the requested claim while transferring only a partial pro-rata payout
+    without claimant-controlled minimum output, or uses a melt()-driven exchange-rate STEP that
+    can be sandwiched by transaction ordering.
+  pattern_signals:
+    - "redeem requires fullyCollateralized then pays par via quote() with no pro-rata bound"
+    - "requested claim is burned while token transfers are capped to smaller pro-rata balances"
+    - "partial redemption has no caller-supplied minimum output or atomic all-or-nothing check"
+    - "a melt()/payout that discretely steps the per-unit redemption rate (sandwichable)"
+    - "redemption allowed while IFFY/DISABLED based on a momentary fully-collateralized check"
+  not_this_defect:
+    - "a partial redemption burns only the paid fraction, or the caller explicitly opts in with an enforceable minimum output / all-or-nothing condition"
+    - "the claimant cannot be moved from the submitted full outcome to an adverse partial outcome by transaction ordering"
+  stablecoin_impact: "first/ordered redeemers extract more than fair par share of backing"
+  example: "EUSD RToken.redeemTo par + Furnace.melt rate step (M-12/M-15)"
